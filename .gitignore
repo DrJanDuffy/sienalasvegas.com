@@ -34,3 +34,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Vercel pull output (do not commit downloaded source; push via script instead)
+/vercel-source

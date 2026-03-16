@@ -1,0 +1,12 @@
+{
+  "name": "sienalasvegas.com",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "vercel-pull": "node scripts/vercel-pull-source.cjs",
+    "vercel-push-github": "node scripts/push-vercel-source-to-github.cjs"
+  }
+}
