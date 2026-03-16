@@ -25,7 +25,7 @@ Las Vegas real estate site (Dr. Jan Duffy). Deployed on [Vercel](https://vercel.
 | `docs/vercel-project-settings.md` | Dashboard settings reference |
 | `vercel.json` | Vercel config (headers, static cache) |
 | `docs/OPTIMIZATION.md` | Performance, SEO, security checklist |
-| `docs/ADD_SITE_SOURCE.md` | Clone, copy site files in, commit, push (Unix + Windows) |
+| `docs/ADD_SITE_SOURCE.md` | Add site source: one-time CLI→Git move, then clone/copy/push (Unix + Windows) |
 | `docs/VERCEL_CLI_SETUP.md` | Vercel CLI: link project, pull config + env (not source) |
 
 ## Optimization
