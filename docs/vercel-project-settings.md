@@ -52,4 +52,12 @@ Team: **janet-duffys-projects**
 | Setting | Value |
 |--------|--------|
 | **Connected repository** | DrJanDuffy/sienalasvegas.com |
-| **Git options** | Pull Request Comments, Commit Comments, Require Verified Commits, `deployment_status` / `repository_dispatch` events (Dashboard → Settings → Git) |
+| **Connected** | Via Dashboard (e.g. "Connected 10h ago") |
+
+**Toggles (Settings → Git):** Pull Request Comments, Commit Comments, Require Verified Commits, `deployment_status` Events, `repository_dispatch` Events. Vercel posts comments and events to the repo based on these.
+
+**Git LFS:** Disabled (large files stored in Git; enable in Settings → Git if needed).
+
+## Deploy Hooks
+
+Deploy hooks are unique URLs that trigger a deployment of a given branch. Create in **Settings → Git → Deploy Hooks**. Example: name **My Example Hook**, branch **main**. This project may have none configured; add one if you need CI or external triggers.
