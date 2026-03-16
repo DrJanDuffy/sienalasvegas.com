@@ -35,11 +35,21 @@ Reference for Framework / Build settings configured in the Vercel Dashboard. Use
 | Type | URL |
 |------|-----|
 | Production | https://www.sienalasvegas.com |
-| Vercel (team) | https://sienalasvegascom-git-main-janet-duffys-projects.vercel.app |
+| Vercel (project default) | https://sienalasvegascom.vercel.app |
+| Vercel (team main) | https://sienalasvegascom-git-main-janet-duffys-projects.vercel.app |
 | Preview (per deploy) | `https://sienalasvegas-{id}-janet-duffys-projects.vercel.app` (e.g. sienalasvegas-f2ljmn6ha-janet-duffys-projects.vercel.app) |
+
+**Observed routes (all 200):** `/`, `/about`, `/contact`, `/neighborhoods`, `/robots.txt`, `/_next/image`.
 
 ---
 
 Project: **sienalasvegas.com**  
 Project ID: `prj_vrMcC3LsxgF3yf51M06TdeYUI24j`  
 Team: **janet-duffys-projects**
+
+## Git (connected)
+
+| Setting | Value |
+|--------|--------|
+| **Connected repository** | DrJanDuffy/sienalasvegas.com |
+| **Git options** | Pull Request Comments, Commit Comments, Require Verified Commits, `deployment_status` / `repository_dispatch` events (Dashboard → Settings → Git) |

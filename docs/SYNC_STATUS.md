@@ -44,16 +44,10 @@ git pull origin main
 
 To match GitHub exactly and discard local commits: `git fetch origin && git reset --hard origin/main`.
 
-## 5. Enable auto-deploy: Connect Vercel to GitHub
+## 5. Git connection (connected)
 
-**If `git push` does not trigger a Vercel deployment**, the project is not linked to the repo (or is linked to a different repo/branch). Fix it in the dashboard:
+**Connected repository:** **DrJanDuffy/sienalasvegas.com** — pushes to the connected repo trigger deployments.
 
-1. Open **[Vercel Dashboard](https://vercel.com)** → team **janet-duffys-projects** → project **sienalasvegas.com**.
-2. Go to **Settings** → **Git**.
-3. Under **Connected Git Repository**:
-   - If nothing is connected: click **Connect Git Repository**, choose **GitHub**, select **DrJanDuffy/sienalasvegas.com**, and connect.
-   - If a different repo or org is shown: disconnect and connect **DrJanDuffy/sienalasvegas.com** instead.
-4. Set **Production Branch** to `main` (so pushes to `main` deploy to production).
-5. Save. The next push to `main` on **DrJanDuffy/sienalasvegas.com** will trigger a new deployment.
-
-**Note:** Pushes to a fork (e.g. genekellyboyle/sienalasvegas.com) do not deploy this project; Vercel only watches the connected repo.
+- **Vercel Dashboard** → **sienalasvegas.com** → **Settings** → **Git** to change repo or branch.
+- **Options:** Pull Request Comments, Commit Comments, Require Verified Commits, `deployment_status` and `repository_dispatch` events (toggles in the same Git settings).
+- Pushes to a fork do not deploy this project; only the connected repo is watched.

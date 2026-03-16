@@ -25,6 +25,8 @@ Las Vegas real estate site (Dr. Jan Duffy). Deployed on [Vercel](https://vercel.
 | `docs/vercel-project-settings.md` | Dashboard settings reference |
 | `vercel.json` | Vercel config (headers, static cache) |
 | `docs/OPTIMIZATION.md` | Performance, SEO, security checklist |
+| `docs/ADD_SITE_SOURCE.md` | Clone, copy site files in, commit, push (Unix + Windows) |
+| `docs/VERCEL_CLI_SETUP.md` | Vercel CLI: link project, pull config + env (not source) |
 
 ## Optimization
 
@@ -34,9 +36,9 @@ Checklist for performance (Core Web Vitals), SEO/local (GBP, NAP, schema), secur
 
 See [docs/SYNC_STATUS.md](docs/SYNC_STATUS.md) for current push/sync status, unblock options (collaborator vs fork), and step-by-step commands for Vercel pull, push to GitHub, and optional Vercel Git connection.
 
-## Auto-deploy (push to GitHub → Vercel)
+## Auto-deploy
 
-For `git push` to trigger a Vercel deployment, the project must be connected to this repo: **Vercel Dashboard** → **sienalasvegas.com** → **Settings** → **Git** → connect **DrJanDuffy/sienalasvegas.com**, set Production Branch to `main`. See [docs/SYNC_STATUS.md](docs/SYNC_STATUS.md#5-enable-auto-deploy-connect-vercel-to-github).
+**DrJanDuffy/sienalasvegas.com** is connected to Vercel; pushes to the repo trigger deployments. Configure PR/commit comments and events under **Vercel Dashboard** → **sienalasvegas.com** → **Settings** → **Git**. See [docs/SYNC_STATUS.md](docs/SYNC_STATUS.md#5-git-connection-connected).
 
 ## Best practices
 
