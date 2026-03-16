@@ -30,6 +30,14 @@ Reference for Framework / Build settings configured in the Vercel Dashboard. Use
 - **Deployment Checks:** No checks configured
 - **Rolling Releases:** As configured in dashboard
 
+## Deployment URLs
+
+| Type | URL |
+|------|-----|
+| Production | https://www.sienalasvegas.com |
+| Vercel (team) | https://sienalasvegascom-git-main-janet-duffys-projects.vercel.app |
+| Preview (per deploy) | `https://sienalasvegas-{id}-janet-duffys-projects.vercel.app` (e.g. sienalasvegas-f2ljmn6ha-janet-duffys-projects.vercel.app) |
+
 ---
 
 Project: **sienalasvegas.com**  

@@ -23,7 +23,12 @@ Las Vegas real estate site (Dr. Jan Duffy). Deployed on [Vercel](https://vercel.
 | `scripts/push-vercel-source-to-github.cjs` | Push downloaded source to this repo |
 | `scripts/VERCEL_PULL_README.md` | Step-by-step Vercel → GitHub → Cursor |
 | `docs/vercel-project-settings.md` | Dashboard settings reference |
-| `vercel.json` | Vercel config (schema only; rest in Dashboard) |
+| `vercel.json` | Vercel config (headers, static cache) |
+| `docs/OPTIMIZATION.md` | Performance, SEO, security checklist |
+
+## Optimization
+
+Checklist for performance (Core Web Vitals), SEO/local (GBP, NAP, schema), security, and build: [docs/OPTIMIZATION.md](docs/OPTIMIZATION.md). Repo `vercel.json` adds security headers and long-lived cache for `_next/static` and `/static`.
 
 ## Sync status and blockers
 
