@@ -1,18 +1,17 @@
 #!/usr/bin/env node
 /**
  * Download deployment source from Vercel via REST API.
- * Requires: VERCEL_TOKEN, and either DEPLOYMENT_ID or VERCEL_PROJECT_NAME (e.g. sienalasvegas-com).
- * Optional: OUTPUT_DIR (default ./vercel-source), VERCEL_TEAM_SLUG for teams.
+ * Requires: VERCEL_TOKEN, and either DEPLOYMENT_ID or VERCEL_PROJECT_NAME or VERCEL_PROJECT_ID.
+ * Optional: OUTPUT_DIR (default ./vercel-source), VERCEL_TEAM_SLUG for team projects.
  *
- * Usage:
+ * Example (sienalasvegas.com, team janet-duffys-projects):
  *   set VERCEL_TOKEN=xxx
- *   set VERCEL_PROJECT_NAME=sienalasvegas-com
+ *   set VERCEL_PROJECT_NAME=sienalasvegas.com
+ *   set VERCEL_TEAM_SLUG=janet-duffys-projects
  *   node scripts/vercel-pull-source.cjs
  *
- * Or with deployment ID:
- *   set VERCEL_TOKEN=xxx
- *   set DEPLOYMENT_ID=dpl_xxxxx
- *   node scripts/vercel-pull-source.cjs
+ * Or by Project ID: set VERCEL_PROJECT_ID=prj_vrMcC3LsxgF3yf51M06TdeYUI24j
+ * Or by deployment: set DEPLOYMENT_ID=dpl_xxxxx
  */
 
 const fs = require('fs');
@@ -23,7 +22,7 @@ const VERCEL_API = 'https://api.vercel.com';
 async function request(token, method, pathname, query = {}, teamSlug = null) {
   const url = new URL(pathname, VERCEL_API);
   Object.entries(query).forEach(([k, v]) => url.searchParams.set(k, v));
-  if (teamSlug) url.searchParams.set('teamId', teamSlug);
+  if (teamSlug) url.searchParams.set('slug', teamSlug);
   const res = await fetch(url.toString(), {
     method,
     headers: { Authorization: `Bearer ${token}` },
@@ -35,15 +34,15 @@ async function request(token, method, pathname, query = {}, teamSlug = null) {
   return res.json();
 }
 
-async function getDeploymentId(token, projectName, teamSlug) {
+async function getDeploymentId(token, projectIdOrName, teamSlug) {
   const data = await request(token, 'GET', '/v6/deployments', {
-    projectId: projectName,
+    projectId: projectIdOrName,
     limit: '10',
     state: 'READY',
   }, teamSlug || undefined);
   const deployments = data.deployments || [];
   if (deployments.length === 0) {
-    throw new Error(`No READY deployments found for project "${projectName}". Check VERCEL_PROJECT_NAME (use project name as in Vercel URL).`);
+    throw new Error(`No READY deployments found for project "${projectIdOrName}". Check VERCEL_PROJECT_NAME / VERCEL_PROJECT_ID and VERCEL_TEAM_SLUG (for team projects).`);
   }
   const latest = deployments[0];
   console.error('Using deployment:', latest.uid, latest.url || '(no url)');
@@ -64,7 +63,7 @@ async function listFiles(token, deploymentId, teamSlug) {
 
 async function getFileContent(token, deploymentId, fileId, teamSlug) {
   const url = `/v8/deployments/${deploymentId}/files/${fileId}`;
-  const res = await fetch(`${VERCEL_API}${url}${teamSlug ? `?teamId=${encodeURIComponent(teamSlug)}` : ''}`, {
+  const res = await fetch(`${VERCEL_API}${url}${teamSlug ? `?slug=${encodeURIComponent(teamSlug)}` : ''}`, {
     headers: { Authorization: `Bearer ${token}` },
   });
   if (!res.ok) throw new Error(`File ${fileId}: ${res.status}`);
@@ -108,6 +107,7 @@ async function downloadAll(token, deploymentId, fileList, outputDir, teamSlug) {
 async function main() {
   const token = process.env.VERCEL_TOKEN;
   const deploymentId = process.env.DEPLOYMENT_ID;
+  const projectId = process.env.VERCEL_PROJECT_ID;
   const projectName = process.env.VERCEL_PROJECT_NAME;
   const outputDir = path.resolve(process.env.OUTPUT_DIR || path.join(process.cwd(), 'vercel-source'));
   const teamSlug = process.env.VERCEL_TEAM_SLUG || null;
@@ -116,12 +116,13 @@ async function main() {
     console.error('Set VERCEL_TOKEN (create at https://vercel.com/account/tokens)');
     process.exit(1);
   }
-  if (!deploymentId && !projectName) {
-    console.error('Set DEPLOYMENT_ID or VERCEL_PROJECT_NAME (e.g. sienalasvegas-com)');
+  const projectIdOrName = projectId || projectName;
+  if (!deploymentId && !projectIdOrName) {
+    console.error('Set DEPLOYMENT_ID or VERCEL_PROJECT_NAME or VERCEL_PROJECT_ID');
     process.exit(1);
   }
 
-  const id = deploymentId || await getDeploymentId(token, projectName, teamSlug);
+  const id = deploymentId || await getDeploymentId(token, projectIdOrName, teamSlug);
   const tree = await listFiles(token, id, teamSlug);
   const fileList = flattenTree(Array.isArray(tree) ? tree : [tree]);
   if (fileList.length === 0) {

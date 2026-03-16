@@ -1,12 +1,14 @@
 # Pull Vercel deployment source to GitHub then Cursor
 
-## 1. Create Vercel token and get deployment ID
+## 1. Create Vercel token and project settings
 
 1. **Create a token:** [Vercel → Account → Tokens](https://vercel.com/account/tokens) → Create (e.g. "Download source"). Copy the token.
-2. **Project name:** In Vercel, open your project (e.g. sienalasvegas.com). The project name in the URL is often like `sienalasvegas-com` (lowercase, hyphen). Use that as `VERCEL_PROJECT_NAME`.
-3. **Optional:** If you use a Vercel **Team**, set `VERCEL_TEAM_SLUG` to your team slug.
+2. **Project (sienalasvegas.com):**
+   - **Project Name:** `sienalasvegas.com`
+   - **Project ID:** `prj_vrMcC3LsxgF3yf51M06TdeYUI24j`
+   - **Team:** `janet-duffys-projects` → set `VERCEL_TEAM_SLUG` for team projects.
 
-You can skip deployment ID: the script will use the latest READY deployment for the project.
+You can skip deployment ID: the script uses the latest READY deployment for the project.
 
 ## 2. Download deployment source
 
@@ -15,16 +17,20 @@ From the repo root (or any folder where you want `vercel-source` created):
 **Windows (PowerShell):**
 ```powershell
 $env:VERCEL_TOKEN = "your_token_here"
-$env:VERCEL_PROJECT_NAME = "sienalasvegas-com"
+$env:VERCEL_PROJECT_NAME = "sienalasvegas.com"
+$env:VERCEL_TEAM_SLUG = "janet-duffys-projects"
 node scripts/vercel-pull-source.cjs
 ```
 
 **Windows (CMD):**
 ```cmd
 set VERCEL_TOKEN=your_token_here
-set VERCEL_PROJECT_NAME=sienalasvegas-com
+set VERCEL_PROJECT_NAME=sienalasvegas.com
+set VERCEL_TEAM_SLUG=janet-duffys-projects
 node scripts/vercel-pull-source.cjs
 ```
+
+Or use **Project ID** (e.g. for API): `VERCEL_PROJECT_ID=prj_vrMcC3LsxgF3yf51M06TdeYUI24j`
 
 Output is written to `vercel-source/` (or set `OUTPUT_DIR`).
 
