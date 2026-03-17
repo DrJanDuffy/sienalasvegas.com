@@ -26,7 +26,7 @@ Use this when editing the app or after syncing from Vercel/GitHub. Aligns with 2
 - [ ] **Meta:** Unique `title`, `description`, and H1 per page; include location and service area.
 - [ ] **Canonical and social:** Every page sets its own canonical URL, Open Graph, and Twitter metadata via `buildPageMetadata()` in `lib/metadata.ts`. Do not rely on layout for canonical—each page exports metadata (or `generateMetadata` for dynamic routes) with the correct path.
 - [ ] **One H1 per page:** Each page must have exactly one main `<h1>` that matches the page topic and (where sensible) includes location or service. No structural change to content unless a page is missing an H1 or has multiple H1s. Homepage H1 is in HeroSection; inner pages use a single hero-style H1.
-- [ ] **Sitemap / robots:** Generated and linked; allow crawlers where appropriate.
+- [ ] **Sitemap / robots:** Generated and linked; allow crawlers where appropriate. Sitemap at `/sitemap.xml` (see `app/sitemap.ts`); `public/robots.txt` points to it. Full GSC setup: **`docs/google-search-console.md`**.
 
 ## GEO (Generative Engine Optimization)
 

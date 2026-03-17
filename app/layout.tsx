@@ -91,6 +91,8 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth antialiased" style={{ colorScheme: 'light' }}>
       <head>
         <meta name="color-scheme" content="light" />
+        {/* Sitemap for crawlers and Google Search Console */}
+        <link rel="sitemap" type="application/xml" href={`${siteConfig.url}/sitemap.xml`} />
         {/* Preconnect to key third-party origins to reduce LCP (Lighthouse) */}
         <link rel="preconnect" href="https://assets.calendly.com" />
         <link rel="preconnect" href="https://em.realscout.com" />
