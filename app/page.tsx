@@ -1,6 +1,6 @@
 import Navbar from "@/components/layouts/Navbar";
 import HeroSection from "@/components/sections/HeroSection";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
+import RealScoutListings from "@/components/realscout/RealScoutListingsDynamic";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import ReviewsSection from "@/components/sections/ReviewsSection";
 import FAQSection from "@/components/sections/FAQSection";

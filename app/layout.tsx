@@ -3,12 +3,21 @@ import "./globals.css";
 import React from "react";
 import type { Metadata } from "next";
 import Script from "next/script";
+import dynamic from "next/dynamic";
 import { GeistSans } from "geist/font/sans";
 import { Analytics } from "@vercel/analytics/react";
 import { cn } from "lib/utils";
-import AIChatWidget from "@/components/chat/AIChatWidget";
-import CalendlyBadge from "@/components/calendly/CalendlyBadge";
 import SchemaScript from "@/components/SchemaScript";
+
+const AIChatWidget = dynamic(
+  () => import("@/components/chat/AIChatWidget"),
+  { ssr: false }
+);
+
+const CalendlyBadge = dynamic(
+  () => import("@/components/calendly/CalendlyBadge"),
+  { ssr: false }
+);
 import {
   generateRealEstateAgentSchema,
   generateWebSiteSchema,
@@ -86,12 +95,12 @@ export default function RootLayout({
         <meta name="color-scheme" content="light" />
         {/* Site-wide JSON-LD Schema: RealEstateAgent + WebSite */}
         <SchemaScript schema={siteWideSchemas} id="site-schema" />
-        {/* Google Analytics */}
+        {/* Google Analytics - lazyOnload to reduce main-thread work during LCP */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-WB5DLLZ4C6"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -99,16 +108,16 @@ export default function RootLayout({
             gtag('config', 'G-WB5DLLZ4C6');
           `}
         </Script>
-        {/* RealScout Widget Script - loaded once globally */}
+        {/* RealScout Widget Script - loaded once globally, deferred to avoid blocking */}
         <Script
           src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
           type="module"
-          strategy="beforeInteractive"
+          strategy="lazyOnload"
         />
         {/* Calendly Widget Script - loaded once globally */}
         <Script
           src="https://assets.calendly.com/assets/external/widget.js"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
       </head>
       <body

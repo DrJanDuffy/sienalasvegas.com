@@ -1,6 +1,6 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
+import RealScoutListings from "@/components/realscout/RealScoutListingsDynamic";
 import { Phone, Mail, MapPin, Clock, Calendar, CheckCircle, Star, Users, Shield } from "lucide-react";
 import CalendlyWidget from "@/components/calendly/CalendlyWidget";
 import Link from "next/link";

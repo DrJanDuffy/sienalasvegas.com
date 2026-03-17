@@ -53,6 +53,11 @@ realscout-office-listings {
   width: 100%;
 }
 
+/* Promote RealScout MUI pagination to compositor layer to avoid non-composited animation (font-weight) jank */
+realscout-office-listings .MuiPaginationItem-root {
+  transform: translateZ(0);
+}
+
 /* RealScout container wrapper */
 .realscout-wrapper {
   display: flex;

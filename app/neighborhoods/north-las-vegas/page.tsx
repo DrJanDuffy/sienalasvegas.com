@@ -1,6 +1,6 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
+import RealScoutListings from "@/components/realscout/RealScoutListingsDynamic";
 import Link from "next/link";
 import { Phone, DollarSign, TrendingUp, Home as HomeIcon, Users } from "lucide-react";
 import type { Metadata } from "next";
