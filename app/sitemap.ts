@@ -1,6 +1,8 @@
 import { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site-config";
 
+// Single build-time date for all entries; ordering is stable (core → services → personas → 55+ → neighborhoods).
+// When the site exceeds ~1000 URLs or adds multiple domains, switch to generateSitemaps() for a sitemap index.
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url;
   const lastModified = new Date();

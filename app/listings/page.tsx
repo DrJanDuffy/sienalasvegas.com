@@ -68,42 +68,12 @@ const priceRanges = [
 ];
 
 const neighborhoods = [
-  {
-    name: "Summerlin",
-    description: "Master-planned community with Red Rock views, top schools, and 150+ parks",
-    medianPrice: "$625,000",
-    daysOnMarket: 22,
-  },
-  {
-    name: "Henderson",
-    description: "Nevada's second-largest city with family-friendly communities and low crime",
-    medianPrice: "$485,000",
-    daysOnMarket: 24,
-  },
-  {
-    name: "Green Valley",
-    description: "Established Henderson community with mature landscaping and golf courses",
-    medianPrice: "$520,000",
-    daysOnMarket: 26,
-  },
-  {
-    name: "Southern Highlands",
-    description: "Guard-gated luxury community with championship golf and mountain views",
-    medianPrice: "$750,000",
-    daysOnMarket: 32,
-  },
-  {
-    name: "North Las Vegas",
-    description: "Affordable new construction and growing infrastructure",
-    medianPrice: "$385,000",
-    daysOnMarket: 18,
-  },
-  {
-    name: "Skye Canyon",
-    description: "Newer master-planned community with modern amenities and mountain access",
-    medianPrice: "$550,000",
-    daysOnMarket: 20,
-  },
+  { name: "Summerlin", slug: "summerlin", description: "Master-planned community with Red Rock views, top schools, and 150+ parks", medianPrice: "$625,000", daysOnMarket: 22 },
+  { name: "Henderson", slug: "henderson", description: "Nevada's second-largest city with family-friendly communities and low crime", medianPrice: "$485,000", daysOnMarket: 24 },
+  { name: "Green Valley", slug: "green-valley", description: "Established Henderson community with mature landscaping and golf courses", medianPrice: "$520,000", daysOnMarket: 26 },
+  { name: "Southern Highlands", slug: "southern-highlands", description: "Guard-gated luxury community with championship golf and mountain views", medianPrice: "$750,000", daysOnMarket: 32 },
+  { name: "North Las Vegas", slug: "north-las-vegas", description: "Affordable new construction and growing infrastructure", medianPrice: "$385,000", daysOnMarket: 18 },
+  { name: "Skye Canyon", slug: "skye-canyon", description: "Newer master-planned community with modern amenities and mountain access", medianPrice: "$550,000", daysOnMarket: 20 },
 ];
 
 export default function ListingsPage() {
@@ -228,17 +198,18 @@ export default function ListingsPage() {
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {neighborhoods.map((neighborhood) => (
-                <div
+                <Link
                   key={neighborhood.name}
-                  className="bg-white border border-slate-200 rounded-lg p-6 hover:shadow-lg transition-shadow"
+                  href={`/neighborhoods/${neighborhood.slug}`}
+                  className="bg-white border border-slate-200 rounded-lg p-6 hover:shadow-lg hover:border-blue-200 transition-all group block"
                 >
-                  <h3 className="font-bold text-lg text-slate-900 mb-2">{neighborhood.name}</h3>
+                  <h3 className="font-bold text-lg text-slate-900 mb-2 group-hover:text-blue-600">{neighborhood.name}</h3>
                   <p className="text-slate-600 text-sm mb-4">{neighborhood.description}</p>
                   <div className="flex justify-between text-sm">
                     <span className="text-slate-500">Median: <strong className="text-slate-900">{neighborhood.medianPrice}</strong></span>
                     <span className="text-slate-500">DOM: <strong className="text-slate-900">{neighborhood.daysOnMarket} days</strong></span>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
             <div className="text-center mt-8">

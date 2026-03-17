@@ -84,27 +84,16 @@ const nextConfig = {
     ]
   },
 
-  // Bundle analyzer (when ANALYZE=true)
-  webpack: (config, { isServer }) => {
-    if (process.env.ANALYZE === 'true' && !isServer) {
-      const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
-      config.plugins.push(
-        new BundleAnalyzerPlugin({
-          analyzerMode: 'static',
-          reportFilename: './analyze.html',
-          openAnalyzer: false,
-        })
-      )
-    }
-    return config
-  },
 }
 
 // Injected content via Sentry wizard below
 
 const { withSentryConfig } = require("@sentry/nextjs");
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
+});
 
-module.exports = withSentryConfig(
+module.exports = withBundleAnalyzer(withSentryConfig(
   nextConfig,
   {
     // For all available options, see:
@@ -134,4 +123,4 @@ module.exports = withSentryConfig(
     // Automatically tree-shake Sentry logger statements to reduce bundle size
     disableLogger: true,
   }
-);
+));

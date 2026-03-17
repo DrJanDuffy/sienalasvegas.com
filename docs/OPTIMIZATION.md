@@ -8,7 +8,8 @@ Use this when editing the app or after syncing from Vercel/GitHub. Aligns with 2
 - [ ] **Fonts:** Use `next/font` (e.g. Geist or local) to avoid layout shift and extra network.
 - [ ] **JS:** Rely on server components by default; add `"use client"` only where needed (forms, widgets).
 - [ ] **Static:** Pre-render static pages; use ISR (`revalidate`) where content changes occasionally.
-- [ ] **LCP:** Largest contentful paint under 2.5s — optimize hero image and main content load.
+- [ ] **LCP:** Largest contentful paint under 2.5s — optimize hero image and main content load. Hero uses `priority` and `sizes="100vw"` on the first image.
+- [ ] **Bundle analyzer:** Run `npm run analyze` (or `ANALYZE=true next build`) to generate client/edge/server bundle reports in `.next/` for identifying large chunks and code-splitting opportunities.
 
 ## Vercel and build
 

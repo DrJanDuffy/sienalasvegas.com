@@ -11,6 +11,7 @@
     "start": "next start",
     "lint": "next lint",
     "type-check": "tsc --noEmit",
+    "analyze": "ANALYZE=true next build",
     "vercel-pull": "node scripts/vercel-pull-source.cjs",
     "vercel-push-github": "node scripts/push-vercel-source-to-github.cjs"
   },
@@ -38,6 +39,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^14.2.0",
     "@types/node": "^20.11.24",
     "@types/react": "^18.2.63",
     "@types/react-dom": "^18.2.20",

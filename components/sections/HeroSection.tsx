@@ -46,6 +46,7 @@ export default function HeroSection() {
               fill
               className="object-cover"
               priority={index === 0}
+              sizes={index === 0 ? "100vw" : undefined}
             />
             <div className="absolute inset-0 bg-black/40" />
           </div>

@@ -112,8 +112,8 @@ const localBusinessSchema = {
   name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
   description:
     "55+ community specialist helping active adults find their perfect Las Vegas retirement home",
-  telephone: "(702) 500-1942",
-  url: "https://sienalasvegas.com/55-plus-communities",
+  telephone: "+17025001942",
+  url: "https://www.sienalasvegas.com/55-plus-communities",
   areaServed: {
     "@type": "City",
     name: "Las Vegas",
