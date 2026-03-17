@@ -4,11 +4,7 @@ import Image from "next/image";
 import { Bed, Bath, Square, MapPin, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Property Details | Las Vegas & Henderson Real Estate",
-  description: "View detailed information about this property listing in Las Vegas or Henderson, NV.",
-};
+import { buildPageMetadata } from "@/lib/metadata";
 
 // This would typically fetch from RealScout API
 async function getProperty(id: string) {
@@ -31,6 +27,21 @@ async function getProperty(id: string) {
 type PropertyPageProps = {
   params: Promise<{ id: string }>;
 };
+
+export async function generateMetadata({
+  params,
+}: PropertyPageProps): Promise<Metadata> {
+  const { id } = await params;
+  const path = `/listings/${id}`;
+  const property = await getProperty(id);
+  return buildPageMetadata({
+    title: `${property.name} | Las Vegas & Henderson Real Estate`,
+    description:
+      property.description.slice(0, 155) +
+      (property.description.length > 155 ? "…" : ""),
+    path,
+  });
+}
 
 export default async function PropertyPage({ params }: PropertyPageProps) {
   const { id } = await params;

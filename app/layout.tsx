@@ -69,9 +69,7 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  alternates: {
-    canonical: url,
-  },
+  // Canonical is set per-page via buildPageMetadata() so each page has its own canonical URL.
   // Google Search Console: set GOOGLE_SITE_VERIFICATION in env to your meta tag content value
   ...(process.env.GOOGLE_SITE_VERIFICATION
     ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } }

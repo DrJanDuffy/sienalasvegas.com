@@ -23,13 +23,15 @@ import {
   ArrowRight,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 import { sienaCommunity } from "@/lib/site-config";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title:
     "55+ Active Adult Communities Las Vegas | Siena, Sun City, Del Webb, Heritage | Dr. Jan Duffy",
   description:
     "Find your perfect 55+ community in Las Vegas. Siena, Sun City Summerlin, Del Webb Lake Las Vegas, Heritage at Stonebridge, Solera, Trilogy. Dr. Jan Duffy specializes in active adult living. Call (702) 500-1942.",
+  path: "/55-plus-communities",
   keywords: [
     "55+ communities Las Vegas",
     "active adult communities Las Vegas",
@@ -43,13 +45,7 @@ export const metadata: Metadata = {
     "retirement communities Nevada",
     "55 plus homes Las Vegas",
   ],
-  openGraph: {
-    title: "Find Your Perfect 55+ Community in Las Vegas | Dr. Jan Duffy",
-    description:
-      "Siena, Sun City, Del Webb, Heritage at Stonebridge & more—Dr. Duffy specializes in active adult living. sienalasvegas.com | Berkshire Hathaway HomeServices Nevada Properties.",
-    type: "website",
-  },
-};
+});
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -363,10 +359,8 @@ export default function FiftyFiveCommunitiesPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Find Your Perfect 55+ Community in Las Vegas
             </h1>
-            <p className="text-xl md:text-2xl text-slate-600 mb-8">
-              Sun City, Del Webb, Heritage at Stonebridge & more—
-              <br className="hidden md:block" />
-              <strong>Dr. Duffy specializes in active adult living</strong>
+            <p className="text-xl md:text-2xl text-slate-600 mb-8 max-w-3xl mx-auto">
+              55+ communities in Las Vegas include Siena, Sun City Summerlin, Sun City Anthem, Del Webb Lake Las Vegas, Heritage at Stonebridge, and Trilogy. Dr. Jan Duffy at Berkshire Hathaway HomeServices specializes in active adult living and helps you compare amenities, prices, and locations. Call (702) 500-1942.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -387,6 +381,9 @@ export default function FiftyFiveCommunitiesPage() {
               </a>
             </div>
           </div>
+
+          {/* RealScout Widget - lead generator below hero, above the fold */}
+          <RealScoutListings />
 
           {/* Quick Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
@@ -888,7 +885,6 @@ export default function FiftyFiveCommunitiesPage() {
           Last Updated: January 2026
         </div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

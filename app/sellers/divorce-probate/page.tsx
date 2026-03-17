@@ -14,11 +14,13 @@ import {
   Users,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Divorce & Probate Home Sales Las Vegas | Berkshire Hathaway HomeServices",
   description:
     "Sensitive real estate situations handled with discretion. Dr. Jan Duffy helps with divorce sales, probate, estate liquidation, and court-ordered sales. Call (702) 500-1942.",
+  path: "/sellers/divorce-probate",
   keywords: [
     "divorce home sale Las Vegas",
     "probate real estate Las Vegas",
@@ -26,7 +28,7 @@ export const metadata: Metadata = {
     "court ordered sale Nevada",
     "Berkshire Hathaway HomeServices divorce",
   ],
-};
+});
 
 export default function DivorceProbatePage() {
   return (
@@ -54,9 +56,8 @@ export default function DivorceProbatePage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Difficult Situations,<br />Expert Guidance
             </h1>
-            <p className="text-xl text-slate-600 mb-8">
-              When life gets complicated, you need an agent who handles sensitive transactions
-              with discretion, expertise, and compassion.
+            <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
+              Divorce and probate home sales in Las Vegas require discretion, accurate valuations, and clear timelines. Dr. Jan Duffy at Berkshire Hathaway HomeServices handles sensitive transactions with compassion and expertise—from court-ordered sales to estate liquidations. Confidential consultations. Call (702) 500-1942.
             </p>
             <a
               href="tel:+17025001942"
@@ -66,6 +67,9 @@ export default function DivorceProbatePage() {
               Confidential Consultation → (702) 500-1942
             </a>
           </div>
+
+          {/* RealScout Widget - lead generator below hero, above the fold */}
+          <RealScoutListings />
 
           {/* Situations We Help With */}
           <section className="mb-16 max-w-5xl mx-auto">
@@ -528,7 +532,6 @@ export default function DivorceProbatePage() {
         </div>
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

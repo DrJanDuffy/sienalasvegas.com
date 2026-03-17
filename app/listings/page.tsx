@@ -18,11 +18,13 @@ import {
   ArrowRight,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Las Vegas Homes for Sale | MLS Property Search | Berkshire Hathaway HomeServices",
   description:
     "Browse all Las Vegas and Henderson homes for sale with live MLS listings. Search by neighborhood, price, and features. Dr. Jan Duffy, Berkshire Hathaway HomeServices. Call (702) 500-1942.",
+  path: "/listings",
   keywords: [
     "Las Vegas homes for sale",
     "Henderson real estate",
@@ -31,7 +33,7 @@ export const metadata: Metadata = {
     "houses for sale Las Vegas",
     "Berkshire Hathaway listings",
   ],
-};
+});
 
 const listingsSchema = {
   "@context": "https://schema.org",
@@ -94,10 +96,8 @@ export default function ListingsPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Las Vegas Homes for Sale
             </h1>
-            <p className="text-xl text-slate-600 mb-8">
-              Search thousands of Las Vegas, Henderson, and Summerlin properties with live MLS 
-              listings updated every 15 minutes. Find your dream home with expert guidance from 
-              Dr. Jan Duffy at <strong>Berkshire Hathaway HomeServices</strong>.
+            <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
+              Las Vegas homes for sale include live MLS listings for Las Vegas, Henderson, and Summerlin, updated every 15 minutes. Dr. Jan Duffy at Berkshire Hathaway HomeServices offers free buyer representation and full access to 5,000+ active listings. Search by price, neighborhood, and features below.
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm text-slate-500">
               <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-1" /> Live MLS Data</span>

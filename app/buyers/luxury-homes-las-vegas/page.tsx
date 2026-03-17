@@ -16,11 +16,13 @@ import {
   DollarSign,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Luxury Homes Las Vegas | Berkshire Hathaway HomeServices",
   description:
     "Las Vegas luxury real estate from $1.2M to $10M+. Guard-gated estates, Strip penthouses, and custom homes. Dr. Jan Duffy provides discrete, expert representation. Call (702) 500-1942.",
+  path: "/buyers/luxury-homes-las-vegas",
   keywords: [
     "luxury homes Las Vegas",
     "The Ridges Las Vegas",
@@ -29,7 +31,7 @@ export const metadata: Metadata = {
     "guard gated communities Las Vegas",
     "Berkshire Hathaway luxury homes",
   ],
-};
+});
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -92,8 +94,8 @@ export default function LuxuryHomesPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Las Vegas Luxury Real Estate
             </h1>
-            <p className="text-xl text-slate-600 mb-8">
-              Guard-gated estates. Strip penthouses. Uncompromising privacy.
+            <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
+              Luxury homes for sale in Las Vegas include guard-gated estates, Strip-view penthouses, and custom builds in Summerlin, Henderson, and The Ridges. Dr. Jan Duffy at Berkshire Hathaway HomeServices offers confidential representation for high-net-worth buyers and access to off-market listings. Call (702) 500-1942.
             </p>
             <a
               href="tel:+17025001942"
@@ -103,6 +105,9 @@ export default function LuxuryHomesPage() {
               Schedule a Private Preview → (702) 500-1942
             </a>
           </div>
+
+          {/* RealScout Widget - lead generator below hero, above the fold */}
+          <RealScoutListings />
 
           {/* Market Performance */}
           <section className="mb-16 bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
@@ -411,7 +416,6 @@ export default function LuxuryHomesPage() {
         </div>
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

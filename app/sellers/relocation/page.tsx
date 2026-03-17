@@ -14,11 +14,13 @@ import {
   Calendar,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Relocation Home Sales Las Vegas | Berkshire Hathaway HomeServices",
   description:
     "Leaving Las Vegas for a new opportunity? Dr. Jan Duffy helps relocating homeowners sell fast and coordinates with BHHS offices nationwide. Call (702) 500-1942.",
+  path: "/sellers/relocation",
   keywords: [
     "relocation sale Las Vegas",
     "job relocation Las Vegas",
@@ -26,7 +28,7 @@ export const metadata: Metadata = {
     "Berkshire Hathaway relocation services",
     "corporate relocation Nevada",
   ],
-};
+});
 
 export default function RelocationPage() {
   return (
@@ -54,9 +56,8 @@ export default function RelocationPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               New Opportunity?<br />We Handle Your Sale.
             </h1>
-            <p className="text-xl text-slate-600 mb-8">
-              Sell your Las Vegas home while you focus on your new chapter.
-              We coordinate both ends of your move.
+            <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
+              Relocation selling means listing your Las Vegas or Henderson home while you move to a new city. Dr. Jan Duffy at Berkshire Hathaway HomeServices coordinates listing, showings, and closing from afar so you can focus on your new chapter. Free home valuation and flexible marketing. Call (702) 500-1942.
             </p>
             <a
               href="tel:+17025001942"
@@ -66,6 +67,9 @@ export default function RelocationPage() {
               Start Your Relocation → (702) 500-1942
             </a>
           </div>
+
+          {/* RealScout Widget - lead generator below hero, above the fold */}
+          <RealScoutListings />
 
           {/* Network Advantage */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
@@ -519,7 +523,6 @@ export default function RelocationPage() {
         </div>
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

@@ -15,11 +15,13 @@ import {
   Heart,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Trilogy at Summerlin Homes for Sale | Luxury Resort 55+ Living | Dr. Jan Duffy",
   description:
     "Trilogy at Summerlin - luxury resort-style 55+ community. Homes from $500K-$1.1M. On-site farm-to-table restaurant, spa, contemporary designs. Dr. Jan Duffy, BHHS. Call (702) 500-1942.",
+  path: "/55-plus-communities/trilogy-summerlin",
   keywords: [
     "Trilogy at Summerlin homes for sale",
     "Trilogy Summerlin Las Vegas",
@@ -28,13 +30,7 @@ export const metadata: Metadata = {
     "Shea Homes Trilogy",
     "Berkshire Hathaway Trilogy Summerlin",
   ],
-  openGraph: {
-    title: "Trilogy at Summerlin - Luxury Resort 55+ Living",
-    description:
-      "Where resort living meets 55+ community. Farm-to-table dining, spa, contemporary homes. From $500K. Dr. Jan Duffy, BHHS.",
-    type: "website",
-  },
-};
+});
 
 const communitySchema = {
   "@context": "https://schema.org",
@@ -89,11 +85,13 @@ export default function TrilogySummerlinPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Trilogy at Summerlin
             </h1>
-            <p className="text-xl text-slate-600">
-              Where five-star resort living meets 55+ community. Farm-to-table
-              dining, world-class spa, and contemporary homes.
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Trilogy at Summerlin is a 55+ community with resort-style amenities including farm-to-table dining and a world-class spa. Dr. Jan Duffy at Berkshire Hathaway HomeServices represents buyers and sellers for Trilogy Summerlin homes in the Summerlin area. Call (702) 500-1942.
             </p>
           </div>
+
+          {/* RealScout Widget - lead generator below hero, above the fold */}
+          <RealScoutListings />
 
           {/* Quick Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
@@ -424,7 +422,6 @@ export default function TrilogySummerlinPage() {
           Last Updated: January 2026
         </div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

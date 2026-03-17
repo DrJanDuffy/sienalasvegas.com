@@ -15,12 +15,16 @@ import {
   Landmark,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 import { sienaCommunity } from "@/lib/site-config";
+import SchemaScript from "@/components/SchemaScript";
+import { generateWebPageSchema, combineSchemas } from "@/lib/schema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Siena 55+ Community Las Vegas | Golf, Guard-Gated | Dr. Jan Duffy",
   description:
     "Siena — premier 55+ community in Las Vegas. Schmidt-Curley golf course, Community Center, guard-gated security, clubs & events. 10525 Siena Monte Avenue. Dr. Jan Duffy, BHHS. Call (702) 500-1942.",
+  path: "/55-plus-communities/siena",
   keywords: [
     "Siena Las Vegas",
     "Siena 55+ community",
@@ -30,13 +34,7 @@ export const metadata: Metadata = {
     "Siena Community Association",
     "homes for sale Siena Las Vegas",
   ],
-  openGraph: {
-    title: "Siena — Premier 55+ Community in Las Vegas | Dr. Jan Duffy",
-    description:
-      "Championship golf, Community Center, guard-gated security. 10525 Siena Monte Avenue. Active adult living with Spring Mountain views.",
-    type: "website",
-  },
-};
+});
 
 const communitySchema = {
   "@context": "https://schema.org",
@@ -56,13 +54,21 @@ const communitySchema = {
   url: "https://www.sienalv.org",
 };
 
+const sienaPageSchema = combineSchemas(
+  generateWebPageSchema({
+    name: "Siena 55+ Community Las Vegas | Golf, Guard-Gated | Dr. Jan Duffy",
+    description:
+      "Siena — premier 55+ community in Las Vegas. Schmidt-Curley golf course, Community Center, guard-gated security, clubs & events. 10525 Siena Monte Avenue.",
+    url: "/55-plus-communities/siena",
+    dateModified: "2026-01",
+  }),
+  communitySchema
+);
+
 export default function SienaPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(communitySchema) }}
-      />
+      <SchemaScript schema={sienaPageSchema} id="siena-page-schema" />
       <Navbar />
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4">
@@ -90,10 +96,22 @@ export default function SienaPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Siena
             </h1>
-            <p className="text-xl text-slate-600">
-              {sienaCommunity.tagline}
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Siena is a premier 55+ guard-gated community in Summerlin South, Las Vegas, with 2,001 single-family homes and villas on 667 acres. It features a Schmidt-Curley championship golf course, a 16,000 sq ft Community Center with fitness and salon, and over 80 resident-run clubs. The community is served by Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties (10525 Siena Monte Avenue). For Siena homes for sale or a free valuation, call (702) 500-1942.
             </p>
+            <div className="mt-8 p-6 bg-slate-50 rounded-xl max-w-2xl mx-auto text-left">
+              <h2 className="text-lg font-bold text-slate-900 mb-3">At a glance</h2>
+              <ul className="space-y-2 text-slate-700">
+                <li><strong>What:</strong> 55+ guard-gated community, 667 acres, 2,001 homes (Summerlin South)</li>
+                <li><strong>Amenities:</strong> Schmidt-Curley golf, Community Center, fitness, salon, 80+ clubs</li>
+                <li><strong>Address:</strong> 10525 Siena Monte Avenue, Las Vegas, NV 89135</li>
+                <li><strong>Agent:</strong> Dr. Jan Duffy, BHHS Nevada Properties — (702) 500-1942</li>
+              </ul>
+            </div>
           </div>
+
+          {/* RealScout Widget - lead generator below hero, above the fold */}
+          <RealScoutListings />
 
           {/* Quick Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
@@ -340,12 +358,11 @@ export default function SienaPage() {
             </div>
           </section>
 
-          {/* Listings */}
-          <section className="mb-16 max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Homes for Sale in Siena
-            </h2>
-            <RealScoutListings />
+          {/* Listings CTA - widget is above the fold below hero */}
+          <section className="mb-16 max-w-6xl mx-auto text-center">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">Homes for Sale in Siena</h2>
+            <p className="text-slate-600 mb-4">Search Siena listings above, or view all on RealScout.</p>
+            <a href="http://drjanduffy.realscout.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-700">View All Properties</a>
           </section>
         </div>
       </main>

@@ -13,6 +13,7 @@ import {
   CheckCircle,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 import SchemaScript from "@/components/SchemaScript";
 import {
   generateBreadcrumbSchema,
@@ -21,10 +22,11 @@ import {
   combineSchemas,
 } from "@/lib/schema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Sun City Anthem Homes for Sale | Berkshire Hathaway HomeServices",
   description:
     "Henderson's premier 55+ community. Sun City Anthem homes from $350K-$1.2M. 2 championship golf courses, stunning mountain views. Dr. Jan Duffy. Call (702) 500-1942.",
+  path: "/55-plus-communities/sun-city-anthem",
   keywords: [
     "Sun City Anthem homes for sale",
     "Sun City Anthem Henderson",
@@ -32,7 +34,7 @@ export const metadata: Metadata = {
     "active adult Henderson",
     "Berkshire Hathaway Sun City Anthem",
   ],
-};
+});
 
 // Breadcrumb items
 const breadcrumbs = [
@@ -126,10 +128,13 @@ export default function SunCityAnthemPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Sun City Anthem
             </h1>
-            <p className="text-xl text-slate-600">
-              7,100+ homes. Mountain views. Henderson safety. Championship golf.
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Sun City Anthem is a 55+ community in Henderson with 7,100+ homes, mountain views, and championship golf. Dr. Jan Duffy at Berkshire Hathaway HomeServices specializes in Sun City Anthem resales and helps buyers compare floor plans and HOA amenities. Call (702) 500-1942.
             </p>
           </div>
+
+          {/* RealScout Widget - lead generator below hero, above the fold */}
+          <RealScoutListings />
 
           {/* Quick Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
@@ -340,7 +345,6 @@ export default function SunCityAnthemPage() {
         </div>
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

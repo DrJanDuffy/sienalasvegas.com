@@ -4,11 +4,13 @@ import RealScoutListings from "@/components/realscout/RealScoutListingsDynamic";
 import Link from "next/link";
 import { Phone, Mountain, Users, Home as HomeIcon, GraduationCap } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Berkshire Hathaway HomeServices Skye Canyon | Northwest Las Vegas",
   description:
     "Find Skye Canyon homes with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy specializes in this premier northwest community. Median price $550K. Call (702) 500-1942.",
+  path: "/neighborhoods/skye-canyon",
   keywords: [
     "Berkshire Hathaway HomeServices Skye Canyon",
     "Skye Canyon homes for sale",
@@ -16,7 +18,7 @@ export const metadata: Metadata = {
     "northwest Las Vegas homes",
     "new construction Skye Canyon",
   ],
-};
+});
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -86,11 +88,13 @@ export default function SkyeCanyonPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Berkshire Hathaway HomeServices Skye Canyon
             </h1>
-            <p className="text-xl text-slate-600">
-              Northwest Las Vegas's fastest-growing community. Discover Skye Canyon with{" "}
-              <strong>Berkshire Hathaway HomeServices</strong> and Dr. Jan Duffy.
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Skye Canyon is northwest Las Vegas's fast-growing community with trails, parks, and new construction. Dr. Jan Duffy at Berkshire Hathaway HomeServices helps buyers and sellers in Skye Canyon; median price ~$550K. Free buyer representation and home valuation. Call (702) 500-1942.
             </p>
           </div>
+
+          {/* RealScout Widget - lead generator below hero, above the fold */}
+          <RealScoutListings />
 
           {/* Market Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
@@ -390,7 +394,6 @@ export default function SkyeCanyonPage() {
         </div>
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

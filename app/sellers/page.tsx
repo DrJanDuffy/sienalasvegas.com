@@ -18,11 +18,13 @@ import {
   Award,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Sell Your Las Vegas Home | Berkshire Hathaway HomeServices",
   description:
     "Sell your Las Vegas or Henderson home for top dollar with Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties. Free home valuation. World-class marketing. Call (702) 500-1942.",
+  path: "/sellers",
   keywords: [
     "sell home Las Vegas",
     "Las Vegas listing agent",
@@ -32,7 +34,7 @@ export const metadata: Metadata = {
     "Las Vegas real estate agent",
     "Summerlin home selling",
   ],
-};
+});
 
 const sellerSchema = {
   "@context": "https://schema.org",
@@ -140,11 +142,8 @@ export default function SellersPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Sell Your Las Vegas Home for Top Dollar
             </h1>
-            <p className="text-xl text-slate-600 mb-8">
-              When you list with <strong>Berkshire Hathaway HomeServices</strong>, you get
-              world-class marketing, expert pricing, and a name that buyers trust. Dr. Jan Duffy 
-              has been serving Las Vegas since 2008—helping sellers achieve top-dollar results 
-              with proven marketing strategies and skilled negotiation.
+            <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
+              Selling your Las Vegas or Henderson home with Berkshire Hathaway HomeServices means world-class marketing, accurate pricing from current MLS data, and expert negotiation. Dr. Jan Duffy has served Las Vegas sellers since 2008 with $127M+ in closed sales. Get a free home valuation and listing plan. Call (702) 500-1942.
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm text-slate-500">
               <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-1" /> Free Home Valuation</span>
@@ -152,6 +151,9 @@ export default function SellersPage() {
               <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-1" /> Expert Negotiation</span>
             </div>
           </div>
+
+          {/* RealScout Widget - lead generator below hero, above the fold */}
+          <RealScoutListings />
 
           {/* Market Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
@@ -448,7 +450,6 @@ export default function SellersPage() {
         {/* Last Updated */}
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

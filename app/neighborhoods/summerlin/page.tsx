@@ -4,6 +4,7 @@ import RealScoutListings from "@/components/realscout/RealScoutListingsDynamic";
 import Link from "next/link";
 import { Phone, MapPin, TreePine, Mountain, GraduationCap, ShoppingBag } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 import SchemaScript from "@/components/SchemaScript";
 import {
   generateBreadcrumbSchema,
@@ -12,10 +13,11 @@ import {
   combineSchemas,
 } from "@/lib/schema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Berkshire Hathaway HomeServices Summerlin | Las Vegas Luxury Real Estate",
   description:
     "Find Summerlin homes with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy offers expert guidance in Las Vegas's premier master-planned community. Median price $625K. Call (702) 500-1942.",
+  path: "/neighborhoods/summerlin",
   keywords: [
     "Berkshire Hathaway HomeServices Summerlin",
     "Summerlin homes for sale",
@@ -23,7 +25,7 @@ export const metadata: Metadata = {
     "Summerlin Las Vegas",
     "luxury homes Summerlin",
   ],
-};
+});
 
 // Breadcrumb items for this page
 const breadcrumbs = [
@@ -98,11 +100,13 @@ export default function SummerlinPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Berkshire Hathaway HomeServices Summerlin
             </h1>
-            <p className="text-xl text-slate-600">
-              Discover Las Vegas's premier master-planned community with Dr. Jan Duffy, your trusted{" "}
-              <strong>Berkshire Hathaway HomeServices</strong> Summerlin expert.
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Summerlin is Las Vegas's premier master-planned community with top schools, Red Rock Canyon access, and Downtown Summerlin. Dr. Jan Duffy at Berkshire Hathaway HomeServices helps buyers and sellers with Summerlin homes—from condos to luxury estates. Free MLS access and representation. Call (702) 500-1942.
             </p>
           </div>
+
+          {/* RealScout Widget - lead generator below hero, above the fold */}
+          <RealScoutListings />
 
           {/* Market Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
@@ -382,7 +386,6 @@ export default function SummerlinPage() {
         </div>
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

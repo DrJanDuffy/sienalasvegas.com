@@ -4,11 +4,13 @@ import RealScoutListings from "@/components/realscout/RealScoutListingsDynamic";
 import Link from "next/link";
 import { Phone, Mountain, TreePine, DollarSign, Home as HomeIcon } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Berkshire Hathaway HomeServices Mountains Edge | Southwest Las Vegas",
   description:
     "Find Mountains Edge homes with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy specializes in this southwest Las Vegas community. Median price $475K. Call (702) 500-1942.",
+  path: "/neighborhoods/mountains-edge",
   keywords: [
     "Berkshire Hathaway HomeServices Mountains Edge",
     "Mountains Edge homes for sale",
@@ -16,7 +18,7 @@ export const metadata: Metadata = {
     "southwest Las Vegas homes",
     "affordable Las Vegas",
   ],
-};
+});
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -86,11 +88,13 @@ export default function MountainsEdgePage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Berkshire Hathaway HomeServices Mountains Edge
             </h1>
-            <p className="text-xl text-slate-600">
-              Affordable luxury in southwest Las Vegas. Find your Mountains Edge home with{" "}
-              <strong>Berkshire Hathaway HomeServices</strong> and Dr. Jan Duffy.
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Mountains Edge is a southwest Las Vegas community with parks, trails, and family-friendly homes at accessible price points. Dr. Jan Duffy at Berkshire Hathaway HomeServices lists and sells Mountains Edge properties; median price ~$475K. Free buyer representation. Call (702) 500-1942.
             </p>
           </div>
+
+          {/* RealScout Widget - lead generator below hero, above the fold */}
+          <RealScoutListings />
 
           {/* Market Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
@@ -388,7 +392,6 @@ export default function MountainsEdgePage() {
         </div>
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

@@ -4,11 +4,13 @@ import RealScoutListings from "@/components/realscout/RealScoutListingsDynamic";
 import Link from "next/link";
 import { Phone, Mountain, Users, ShoppingBag, Home as HomeIcon } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Berkshire Hathaway HomeServices Centennial Hills | Las Vegas Homes",
   description:
     "Find Centennial Hills homes with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy specializes in this established northwest community. Median price $495K. Call (702) 500-1942.",
+  path: "/neighborhoods/centennial-hills",
   keywords: [
     "Berkshire Hathaway HomeServices Centennial Hills",
     "Centennial Hills homes for sale",
@@ -16,7 +18,7 @@ export const metadata: Metadata = {
     "northwest Las Vegas real estate",
     "family homes Las Vegas",
   ],
-};
+});
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -86,11 +88,13 @@ export default function CentennialHillsPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Berkshire Hathaway HomeServices Centennial Hills
             </h1>
-            <p className="text-xl text-slate-600">
-              Family-friendly northwest Las Vegas living. Find your Centennial Hills home with{" "}
-              <strong>Berkshire Hathaway HomeServices</strong> and Dr. Jan Duffy.
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Centennial Hills is a family-friendly northwest Las Vegas community with strong schools, Centennial Hills Park, and Centennial Center shopping. Dr. Jan Duffy at Berkshire Hathaway HomeServices lists and sells Centennial Hills homes; median price ~$495K. Free buyer representation. Call (702) 500-1942.
             </p>
           </div>
+
+          {/* RealScout Widget - lead generator below hero, above the fold */}
+          <RealScoutListings />
 
           {/* Market Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
@@ -390,7 +394,6 @@ export default function CentennialHillsPage() {
         </div>
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

@@ -3,18 +3,15 @@ import Footer from "@/components/layouts/Footer";
 import Link from "next/link";
 import { Users } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 import { sienaClubsPage } from "@/lib/siena-pages";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Siena Clubs & Groups | Active, Social, Creative | Dr. Jan Duffy",
   description:
     "Siena resident-run clubs and groups: Active, Card & Game, Creative, Discussion, Informative, Social. Bocce, Golf, Pickleball, Bridge, Art, Book Group & more. Dr. Jan Duffy, Siena real estate.",
-  openGraph: {
-    title: "Siena Clubs & Groups",
-    description:
-      "Resident-run clubs and groups in categories: Active, Card & Game, Creative, Discussion, Informative, Social.",
-  },
-};
+  path: "/55-plus-communities/siena/clubs-groups",
+});
 
 export default function SienaClubsGroupsPage() {
   return (

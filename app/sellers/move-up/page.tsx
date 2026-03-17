@@ -13,11 +13,13 @@ import {
   Shield,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Move-Up Sellers Las Vegas | Berkshire Hathaway HomeServices",
   description:
     "Ready for your next chapter? Dr. Jan Duffy helps Las Vegas homeowners leverage equity into their dream home. Sell and buy seamlessly. Call (702) 500-1942.",
+  path: "/sellers/move-up",
   keywords: [
     "move up buyer Las Vegas",
     "sell and buy Las Vegas",
@@ -25,7 +27,7 @@ export const metadata: Metadata = {
     "upgrade home Las Vegas",
     "Berkshire Hathaway HomeServices seller",
   ],
-};
+});
 
 export default function MoveUpSellerPage() {
   return (
@@ -53,8 +55,8 @@ export default function MoveUpSellerPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Ready for Your Next Chapter?
             </h1>
-            <p className="text-xl text-slate-600 mb-8">
-              Your home's equity unlocks your dream home. Let's make the upgrade seamless.
+            <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
+              Move-up buyers in Las Vegas use their current home's equity to purchase a larger or upgraded property. Dr. Jan Duffy at Berkshire Hathaway HomeServices coordinates selling and buying—pricing, timing, and contingency strategies—so your upgrade is seamless. Free equity analysis and buyer representation. Call (702) 500-1942.
             </p>
             <a
               href="tel:+17025001942"
@@ -64,6 +66,9 @@ export default function MoveUpSellerPage() {
               Start Your Upgrade → (702) 500-1942
             </a>
           </div>
+
+          {/* RealScout Widget - lead generator below hero, above the fold */}
+          <RealScoutListings />
 
           {/* Equity Section */}
           <section className="mb-16 bg-green-600 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
@@ -402,7 +407,6 @@ export default function MoveUpSellerPage() {
         </div>
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

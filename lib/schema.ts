@@ -1,5 +1,5 @@
 /**
- * Schema.org Structured Data Generators for heyberkshire.com
+ * Schema.org Structured Data Generators for sienalasvegas.com (and shared sites)
  * Following Google's 2025 Structured Data Guidelines
  *
  * @see https://schema.org
@@ -279,6 +279,38 @@ export function generateFAQSchema(faqs: FAQItem[]) {
       },
     })),
   };
+}
+
+export interface HowToStepInput {
+  name: string;
+  text: string;
+}
+
+/**
+ * Generate HowTo schema for process pages (GEO: helps AI answer engines cite step-by-step content)
+ */
+export function generateHowToSchema(params: {
+  name: string;
+  description: string;
+  url?: string;
+  steps: HowToStepInput[];
+}) {
+  const schema: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: params.name,
+    description: params.description,
+    step: params.steps.map((step, index) => ({
+      "@type": "HowToStep",
+      position: index + 1,
+      name: step.name,
+      text: step.text,
+    })),
+  };
+  if (params.url) {
+    schema.url = params.url.startsWith("http") ? params.url : `${BASE_URL}${params.url}`;
+  }
+  return schema;
 }
 
 /**

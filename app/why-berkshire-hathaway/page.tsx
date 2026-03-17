@@ -4,11 +4,14 @@ import RealScoutListings from "@/components/realscout/RealScoutListingsDynamic";
 import Link from "next/link";
 import { Shield, Users, Globe, Award, TrendingUp, CheckCircle, Phone } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
+import { siteConfig } from "@/lib/site-config";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Why Choose Berkshire Hathaway HomeServices | Las Vegas Real Estate",
   description:
     "Discover why Berkshire Hathaway HomeServices is the most trusted name in real estate. Backed by Warren Buffett, with 50,000+ agents worldwide. Work with BHHS Nevada Properties today.",
+  path: "/why-berkshire-hathaway",
   keywords: [
     "Berkshire Hathaway HomeServices",
     "why choose BHHS",
@@ -16,7 +19,7 @@ export const metadata: Metadata = {
     "trusted real estate brand",
     "BHHS Nevada Properties",
   ],
-};
+});
 
 // Organization Schema
 const organizationSchema = {
@@ -24,7 +27,7 @@ const organizationSchema = {
   "@type": "Organization",
   name: "Berkshire Hathaway HomeServices",
   url: "https://www.bhhs.com",
-  logo: "https://heyberkshire.com/favicon-32x32.png",
+  logo: `${siteConfig.url}/favicon-32x32.png`,
   description:
     "Berkshire Hathaway HomeServices is a real estate brokerage network, part of Berkshire Hathaway Inc., one of the world's most respected and trusted companies.",
   parentOrganization: {
@@ -52,12 +55,13 @@ export default function WhyBerkshireHathawayPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Why Choose Berkshire Hathaway HomeServices?
             </h1>
-            <p className="text-xl text-slate-600 leading-relaxed">
-              When you work with a <strong>Berkshire Hathaway HomeServices</strong> agent, you're
-              backed by a name synonymous with trust, ethical standards, and financial strength—the
-              same principles that built Warren Buffett's empire.
+            <p className="text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto">
+              Berkshire Hathaway HomeServices is a name synonymous with trust, ethics, and financial strength. Dr. Jan Duffy at BHHS Nevada Properties offers the same standards for Las Vegas buyers and sellers—backed by a global brand and local expertise. Call (702) 500-1942.
             </p>
           </div>
+
+          {/* RealScout Widget - lead generator below hero, above the fold */}
+          <RealScoutListings />
 
           {/* Warren Buffett Section */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
@@ -289,7 +293,6 @@ export default function WhyBerkshireHathawayPage() {
         {/* Last Updated */}
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

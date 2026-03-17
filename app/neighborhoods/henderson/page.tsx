@@ -4,11 +4,13 @@ import RealScoutListings from "@/components/realscout/RealScoutListingsDynamic";
 import Link from "next/link";
 import { Phone, Shield, Users, GraduationCap, TreePine } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Berkshire Hathaway HomeServices Henderson | Nevada Real Estate",
   description:
     "Find Henderson homes with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy specializes in Henderson's family-friendly communities. Median price $485K. Call (702) 500-1942.",
+  path: "/neighborhoods/henderson",
   keywords: [
     "Berkshire Hathaway HomeServices Henderson",
     "Henderson homes for sale",
@@ -16,7 +18,7 @@ export const metadata: Metadata = {
     "Henderson Nevada",
     "Green Valley Henderson",
   ],
-};
+});
 
 const neighborhoodSchema = {
   "@context": "https://schema.org",
@@ -102,11 +104,13 @@ export default function HendersonPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Berkshire Hathaway HomeServices Henderson
             </h1>
-            <p className="text-xl text-slate-600">
-              Nevada's safest city. Find your Henderson home with Dr. Jan Duffy, your trusted{" "}
-              <strong>Berkshire Hathaway HomeServices</strong> Henderson specialist.
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Henderson is Nevada's safest city and offers master-planned communities, Lake Mead access, and strong schools. Dr. Jan Duffy at Berkshire Hathaway HomeServices represents buyers and sellers across Green Valley, Inspirada, and Anthem. Free home search and valuation. Call (702) 500-1942.
             </p>
           </div>
+
+          {/* RealScout Widget - lead generator below hero, above the fold */}
+          <RealScoutListings />
 
           {/* Market Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
@@ -403,7 +407,6 @@ export default function HendersonPage() {
         </div>
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

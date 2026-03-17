@@ -3,18 +3,15 @@ import Footer from "@/components/layouts/Footer";
 import Link from "next/link";
 import { MapPin } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 import { sienaCommunityPage } from "@/lib/siena-pages";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Siena Community | Location & Overview | Dr. Jan Duffy",
   description:
     "Siena is a 667-acre age-privileged community in Summerlin South with 2,001 single-family homes and villas. Golf course living, I-215 access, Downtown Summerlin nearby. Dr. Jan Duffy, Siena real estate.",
-  openGraph: {
-    title: "Siena Community | Location & Overview",
-    description:
-      "667-acre 55+ community in Summerlin South. 2,001 homes and villas, championship golf, I-215 Beltway, Downtown Summerlin.",
-  },
-};
+  path: "/55-plus-communities/siena/community",
+});
 
 export default function SienaCommunityPage() {
   return (

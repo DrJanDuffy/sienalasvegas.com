@@ -4,11 +4,13 @@ import RealScoutListings from "@/components/realscout/RealScoutListingsDynamic";
 import Link from "next/link";
 import { Phone, TrendingUp, DollarSign, Building, BarChart, CheckCircle, Calculator } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Las Vegas Investment Properties | Berkshire Hathaway HomeServices",
   description:
     "Invest in Las Vegas real estate with Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties. Rental properties, ROI analysis, 1031 exchanges. No state income tax. Call (702) 500-1942.",
+  path: "/investment-properties",
   keywords: [
     "Las Vegas investment property",
     "Las Vegas rental property",
@@ -17,7 +19,7 @@ export const metadata: Metadata = {
     "1031 exchange Las Vegas",
     "cash flow properties Las Vegas",
   ],
-};
+});
 
 const investmentAreas = [
   {
@@ -78,12 +80,13 @@ export default function InvestmentPropertiesPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Las Vegas Investment Properties
             </h1>
-            <p className="text-xl text-slate-600">
-              No state income tax, strong appreciation, and excellent rental yields. Discover why
-              investors choose Las Vegas—with guidance from{" "}
-              <strong>Berkshire Hathaway HomeServices</strong>.
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Las Vegas investment properties offer no state income tax, strong appreciation, and solid rental yields. Dr. Jan Duffy at Berkshire Hathaway HomeServices helps investors buy and manage rental homes in North Las Vegas, Henderson, and Summerlin. Free market analysis and buyer representation. Call (702) 500-1942.
             </p>
           </div>
+
+          {/* RealScout Widget - lead generator below hero, above the fold */}
+          <RealScoutListings />
 
           {/* Why Las Vegas */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
@@ -451,7 +454,6 @@ export default function InvestmentPropertiesPage() {
         {/* Last Updated */}
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

@@ -14,11 +14,14 @@ import {
   ArrowRight,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
+import { siteConfig } from "@/lib/site-config";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Berkshire Hathaway HomeServices Las Vegas Market Update | January 2026",
   description:
     "Weekly Las Vegas real estate market update from Berkshire Hathaway HomeServices Nevada Properties. Get the latest stats, notable sales, and expert analysis from Dr. Jan Duffy. Call (702) 500-1942.",
+  path: "/market-update",
   keywords: [
     "Berkshire Hathaway HomeServices Las Vegas market update",
     "Las Vegas real estate market",
@@ -26,7 +29,7 @@ export const metadata: Metadata = {
     "Henderson real estate market",
     "Las Vegas home prices",
   ],
-};
+});
 
 const articleSchema = {
   "@context": "https://schema.org",
@@ -48,7 +51,7 @@ const articleSchema = {
   publisher: {
     "@type": "Organization",
     name: "Berkshire Hathaway HomeServices Nevada Properties",
-    url: "https://heyberkshire.com",
+    url: siteConfig.url,
   },
 };
 
@@ -82,14 +85,16 @@ export default function MarketUpdatePage() {
             <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
               Berkshire Hathaway HomeServices Las Vegas Market Update
             </h1>
-            <p className="text-xl text-slate-600">
-              Your weekly insider report on Las Vegas Valley real estate from{" "}
-              <strong>Berkshire Hathaway HomeServices Nevada Properties</strong>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Weekly Las Vegas market update: listings, pricing, and trends from Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties. Get the latest on the Las Vegas Valley real estate market and what it means for buyers and sellers. Call (702) 500-1942.
             </p>
             <div className="flex items-center justify-center mt-6 text-slate-500 text-sm">
               <span>By Dr. Jan Duffy, REALTOR® | BHHS Nevada Properties</span>
             </div>
           </div>
+
+          {/* RealScout Widget - lead generator below hero, above the fold */}
+          <RealScoutListings />
 
           {/* Key Statistics */}
           <section className="mb-16 max-w-5xl mx-auto">
@@ -432,7 +437,6 @@ export default function MarketUpdatePage() {
           Last Updated: January 24, 2026 | Data Source: Las Vegas REALTORS® MLS
         </div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

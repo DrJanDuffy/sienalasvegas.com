@@ -3,18 +3,15 @@ import Footer from "@/components/layouts/Footer";
 import Link from "next/link";
 import { Calendar, PartyPopper } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 import { sienaEventsPage } from "@/lib/siena-pages";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Siena Events & Activities | Lifestyle, Signature Events | Dr. Jan Duffy",
   description:
     "Siena Lifestyle Department and Social Committee events: Sienafest, New Year's Eve Gala, Smith Center trips, trivia, BINGO, Golf & Bistro events. Dr. Jan Duffy, Siena real estate.",
-  openGraph: {
-    title: "Siena Events & Activities",
-    description:
-      "Signature events, lifestyle activities, club events, and Siena Golf Club & Bistro events.",
-  },
-};
+  path: "/55-plus-communities/siena/events-activities",
+});
 
 export default function SienaEventsActivitiesPage() {
   return (

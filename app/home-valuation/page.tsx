@@ -5,11 +5,13 @@ import CalendlyWidget from "@/components/calendly/CalendlyWidget";
 import Link from "next/link";
 import { Phone, CheckCircle, Home, TrendingUp, MapPin, Calculator, Clock, DollarSign } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Free Home Valuation Las Vegas | What's Your Home Worth? | Berkshire Hathaway HomeServices",
   description:
     "Get a free, accurate home valuation in Las Vegas from Dr. Jan Duffy at Berkshire Hathaway HomeServices. Expert CMA analysis for Summerlin, Henderson, Green Valley & all Las Vegas neighborhoods. Call (702) 500-1942.",
+  path: "/home-valuation",
   keywords: [
     "home valuation Las Vegas",
     "what is my home worth Las Vegas",
@@ -19,7 +21,7 @@ export const metadata: Metadata = {
     "Summerlin home value",
     "Henderson home value",
   ],
-};
+});
 
 // FAQ Schema for SEO
 const faqSchema = {
@@ -90,12 +92,13 @@ export default function HomeValuationPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               What's Your Las Vegas Home Worth?
             </h1>
-            <p className="text-xl text-slate-600">
-              Get a free, no-obligation home valuation from Dr. Jan Duffy at{" "}
-              <strong>Berkshire Hathaway HomeServices</strong>. Accurate pricing backed by 17+ years
-              of Las Vegas market expertise and $127M+ in closed transactions.
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              A free home valuation is an estimate of your Las Vegas home's market value based on recent comparable sales and current listings. Dr. Jan Duffy at Berkshire Hathaway HomeServices provides free, no-obligation valuations using local MLS data and 17+ years of Las Vegas experience ($127M+ in closed transactions). Schedule a call or submit your details below to get your estimate.
             </p>
           </div>
+
+          {/* RealScout Widget - lead generator below hero, above the fold */}
+          <RealScoutListings />
 
           <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto mb-16">
             {/* Calendly Widget */}
@@ -489,7 +492,6 @@ export default function HomeValuationPage() {
         {/* Last Updated */}
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

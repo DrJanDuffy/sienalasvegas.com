@@ -17,11 +17,13 @@ import {
   HelpCircle,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "First-Time Home Buyers Las Vegas | Berkshire Hathaway HomeServices",
   description:
     "First-time buyer in Las Vegas? Down payment assistance, builder incentives, and expert guidance from Dr. Jan Duffy at Berkshire Hathaway HomeServices. Call (702) 500-1942.",
+  path: "/buyers/first-time-buyers",
   keywords: [
     "first time home buyer Las Vegas",
     "first time buyer Nevada",
@@ -30,7 +32,7 @@ export const metadata: Metadata = {
     "VA loans Las Vegas",
     "Berkshire Hathaway HomeServices first time buyer",
   ],
-};
+});
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -102,8 +104,8 @@ export default function FirstTimeBuyersPage() {
               Your First Home in Las Vegas<br />
               <span className="text-blue-600">Starts Here</span>
             </h1>
-            <p className="text-xl text-slate-600 mb-8">
-              Down payment assistance. Builder incentives. Expert guidance every step of the way.
+            <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
+              First-time home buyers in Las Vegas can access down payment assistance, FHA and conventional loans, and builder incentives. Dr. Jan Duffy at Berkshire Hathaway HomeServices provides free buyer representation, pre-approval guidance, and step-by-step help from search to closing. Serving Las Vegas since 2008. Call (702) 500-1942.
             </p>
             <a
               href="tel:+17025001942"
@@ -113,6 +115,9 @@ export default function FirstTimeBuyersPage() {
               Let's Make Homeownership Happen → (702) 500-1942
             </a>
           </div>
+
+          {/* RealScout Widget - lead generator below hero, above the fold */}
+          <RealScoutListings />
 
           {/* Financing Options */}
           <section className="mb-16 max-w-5xl mx-auto">
@@ -524,7 +529,6 @@ export default function FirstTimeBuyersPage() {
         </div>
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

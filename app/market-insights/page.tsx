@@ -15,11 +15,13 @@ import {
   CheckCircle,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Las Vegas Real Estate Market Insights 2026 | Berkshire Hathaway HomeServices",
   description:
     "Technology trends, economic forecasts, and market analysis shaping Las Vegas real estate in 2026. AI, data centers, California migration, and what it means for buyers and sellers. Call (702) 500-1942.",
+  path: "/market-insights",
   keywords: [
     "Las Vegas real estate trends 2026",
     "Las Vegas market forecast",
@@ -28,7 +30,7 @@ export const metadata: Metadata = {
     "Las Vegas tech hub",
     "Berkshire Hathaway market insights",
   ],
-};
+});
 
 const reportSchema = {
   "@context": "https://schema.org",
@@ -74,11 +76,13 @@ export default function MarketInsightsPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Las Vegas Market Insights
             </h1>
-            <p className="text-xl text-slate-600">
-              Technology trends, economic forces, and market dynamics shaping Las Vegas
-              real estate in 2026 and beyond.
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Las Vegas market insights cover technology, economics, and demographics shaping local real estate. Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties shares analysis for buyers and sellers. Stay informed on 2026 trends and opportunities. Call (702) 500-1942.
             </p>
           </div>
+
+          {/* RealScout Widget - lead generator below hero, above the fold */}
+          <RealScoutListings />
 
           {/* Key Drivers */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
@@ -449,7 +453,6 @@ export default function MarketInsightsPage() {
         </div>
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

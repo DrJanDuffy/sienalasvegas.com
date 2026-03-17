@@ -14,11 +14,13 @@ import {
   Sun,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Downsizing in Las Vegas | Berkshire Hathaway HomeServices",
   description:
     "Ready to simplify? Dr. Jan Duffy helps Las Vegas homeowners extract equity and transition to low-maintenance living. 55+ communities, condos, and more. Call (702) 500-1942.",
+  path: "/sellers/downsizing",
   keywords: [
     "downsizing Las Vegas",
     "sell large home Las Vegas",
@@ -26,7 +28,7 @@ export const metadata: Metadata = {
     "empty nester Las Vegas",
     "Berkshire Hathaway HomeServices downsizing",
   ],
-};
+});
 
 export default function DownsizingPage() {
   return (
@@ -54,8 +56,8 @@ export default function DownsizingPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Simplify. Downsize. Enjoy.
             </h1>
-            <p className="text-xl text-slate-600 mb-8">
-              Extract your equity. Embrace low-maintenance living. Start your next chapter.
+            <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
+              Downsizing in Las Vegas means selling your current home to unlock equity and move into a smaller or 55+ community. Dr. Jan Duffy at Berkshire Hathaway HomeServices helps you price and market your home, then find low-maintenance options in Siena, Sun City, or condos. Free valuation. Call (702) 500-1942.
             </p>
             <a
               href="tel:+17025001942"
@@ -65,6 +67,9 @@ export default function DownsizingPage() {
               Let's Talk About Your Options → (702) 500-1942
             </a>
           </div>
+
+          {/* RealScout Widget - lead generator below hero, above the fold */}
+          <RealScoutListings />
 
           {/* Equity Extraction */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
@@ -470,7 +475,6 @@ export default function DownsizingPage() {
         </div>
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

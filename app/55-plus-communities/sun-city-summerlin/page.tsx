@@ -15,11 +15,13 @@ import {
   CheckCircle,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Sun City Summerlin Homes for Sale | Berkshire Hathaway HomeServices",
   description:
     "Nevada's largest 55+ community. Sun City Summerlin homes from $320K-$850K. 3 golf courses, 4 rec centers, 100+ clubs. Dr. Jan Duffy, BHHS specialist. Call (702) 500-1942.",
+  path: "/55-plus-communities/sun-city-summerlin",
   keywords: [
     "Sun City Summerlin homes for sale",
     "Sun City Summerlin Las Vegas",
@@ -27,7 +29,7 @@ export const metadata: Metadata = {
     "retirement community Las Vegas",
     "Berkshire Hathaway Sun City",
   ],
-};
+});
 
 const communitySchema = {
   "@context": "https://schema.org",
@@ -77,10 +79,13 @@ export default function SunCitySummerlinPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Sun City Summerlin
             </h1>
-            <p className="text-xl text-slate-600">
-              7,700+ homes. 3 golf courses. 4 recreation centers. The gold standard of active adult living.
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Sun City Summerlin is Las Vegas's largest 55+ community with 7,700+ homes, three golf courses, and four recreation centers. Dr. Jan Duffy at Berkshire Hathaway HomeServices helps buyers and sellers with Sun City Summerlin resales and new construction. Free home search and valuation. Call (702) 500-1942.
             </p>
           </div>
+
+          {/* RealScout Widget - lead generator below hero, above the fold */}
+          <RealScoutListings />
 
           {/* Quick Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
@@ -310,7 +315,6 @@ export default function SunCitySummerlinPage() {
         </div>
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

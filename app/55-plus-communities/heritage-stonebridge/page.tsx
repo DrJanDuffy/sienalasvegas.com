@@ -15,11 +15,13 @@ import {
   Star,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Heritage at Stonebridge Homes for Sale | Guard-Gated 55+ Summerlin | Dr. Jan Duffy",
   description:
     "Heritage at Stonebridge - boutique guard-gated 55+ community in Summerlin. Homes from $400K-$750K. Near Downtown Summerlin, Red Rock Canyon. Dr. Jan Duffy, BHHS. Call (702) 500-1942.",
+  path: "/55-plus-communities/heritage-stonebridge",
   keywords: [
     "Heritage at Stonebridge homes for sale",
     "Heritage Stonebridge Summerlin",
@@ -28,13 +30,7 @@ export const metadata: Metadata = {
     "boutique 55+ community Las Vegas",
     "Berkshire Hathaway Heritage Stonebridge",
   ],
-  openGraph: {
-    title: "Heritage at Stonebridge - Guard-Gated 55+ Living in Summerlin",
-    description:
-      "Boutique community with premium Summerlin location. Guard-gated security, near Downtown Summerlin. From $400K. Dr. Jan Duffy, BHHS.",
-    type: "website",
-  },
-};
+});
 
 const communitySchema = {
   "@context": "https://schema.org",
@@ -89,11 +85,13 @@ export default function HeritageAtStonebridgePage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Heritage at Stonebridge
             </h1>
-            <p className="text-xl text-slate-600">
-              Boutique 55+ living with guard-gated privacy in the heart of
-              Summerlin.
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Heritage at Stonebridge is a boutique 55+ guard-gated community in Summerlin with single-family homes and a resort-style clubhouse. Dr. Jan Duffy at Berkshire Hathaway HomeServices specializes in Heritage at Stonebridge resales and new construction. Call (702) 500-1942.
             </p>
           </div>
+
+          {/* RealScout Widget - lead generator below hero, above the fold */}
+          <RealScoutListings />
 
           {/* Quick Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
@@ -422,7 +420,6 @@ export default function HeritageAtStonebridgePage() {
           Last Updated: January 2026
         </div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

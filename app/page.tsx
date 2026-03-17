@@ -10,10 +10,12 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { Home as HomeIcon, TrendingUp, Shield, Users, Phone } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: `${siteConfig.name} Real Estate | 55+ Community | Dr. Jan Duffy, REALTOR®`,
   description: siteConfig.description,
+  path: "/",
   keywords: [
     "Siena Las Vegas",
     "Siena real estate",
@@ -22,7 +24,7 @@ export const metadata: Metadata = {
     "Dr. Jan Duffy Siena",
     "homes for sale Siena",
   ],
-};
+});
 
 // Organization Schema (Siena NAP per GBP)
 const organizationSchema = {
@@ -107,6 +109,9 @@ export default function Home() {
       <Navbar />
       <main>
         <HeroSection />
+
+        {/* RealScout Widget - lead generator below hero, above the fold */}
+        <RealScoutListings />
 
         {/* Berkshire Hathaway Value Proposition Section */}
         <section className="py-16 md:py-20 bg-white">
@@ -215,8 +220,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        <RealScoutListings />
 
         {/* Neighborhoods Section */}
         <section className="py-16 md:py-20 bg-white">

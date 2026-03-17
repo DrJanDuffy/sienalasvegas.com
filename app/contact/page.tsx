@@ -5,11 +5,16 @@ import { Phone, Mail, MapPin, Clock, Calendar, CheckCircle, Star, Users, Shield 
 import CalendlyWidget from "@/components/calendly/CalendlyWidget";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
+import { agentInfo } from "@/lib/site-config";
+import SchemaScript from "@/components/SchemaScript";
+import { generateWebPageSchema, combineSchemas } from "@/lib/schema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Contact Dr. Jan Duffy | Berkshire Hathaway HomeServices Las Vegas",
   description:
     "Contact Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties. Schedule an appointment, get directions, or call (702) 500-1942. Las Vegas, Henderson, Summerlin real estate expert.",
+  path: "/contact",
   keywords: [
     "contact real estate agent Las Vegas",
     "Berkshire Hathaway contact",
@@ -17,7 +22,7 @@ export const metadata: Metadata = {
     "Las Vegas realtor contact",
     "schedule real estate appointment",
   ],
-};
+});
 
 const contactSchema = {
   "@context": "https://schema.org",
@@ -25,8 +30,8 @@ const contactSchema = {
   mainEntity: {
     "@type": "RealEstateAgent",
     name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
-    telephone: "+17025001942",
-    email: "homes@sienalasvegas.com",
+    telephone: agentInfo.phoneTel.replace("tel:", ""),
+    email: agentInfo.email,
     address: {
       "@type": "PostalAddress",
       streetAddress: "10525 Siena Monte Avenue",
@@ -38,13 +43,21 @@ const contactSchema = {
   },
 };
 
+const contactPageSchema = combineSchemas(
+  generateWebPageSchema({
+    name: "Contact Dr. Jan Duffy | Berkshire Hathaway HomeServices Las Vegas",
+    description:
+      "Contact Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties. Schedule an appointment, get directions, or call (702) 500-1942.",
+    url: "/contact",
+    dateModified: "2026-01",
+  }),
+  contactSchema
+);
+
 export default function ContactPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
-      />
+      <SchemaScript schema={contactPageSchema} id="contact-page-schema" />
       <Navbar />
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4">
@@ -56,12 +69,13 @@ export default function ContactPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Contact Dr. Jan Duffy
             </h1>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              Questions about Las Vegas real estate? Your{" "}
-              <strong>Berkshire Hathaway HomeServices</strong> expert is here to help. 
-              Schedule an appointment or reach out directly.
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Contact Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties for Las Vegas, Henderson, and Summerlin real estate. Office: 10525 Siena Monte Avenue, Las Vegas, NV 89135. Call (702) 500-1942, email, or schedule an appointment for buying, selling, or a free home valuation.
             </p>
           </div>
+
+          {/* RealScout Widget - lead generator below hero, above the fold */}
+          <RealScoutListings />
 
           <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Contact Info & Map */}
@@ -272,13 +286,13 @@ export default function ContactPage() {
                 </div>
               </a>
               <a
-                href="mailto:homes@heyberkshire.com"
+                href={`mailto:${agentInfo.email}`}
                 className="flex items-center justify-center bg-slate-700 hover:bg-slate-800 text-white p-6 rounded-xl transition-colors"
               >
                 <Mail className="h-8 w-8 mr-4" />
                 <div className="text-left">
                   <div className="font-bold text-lg">Send Email</div>
-                  <div className="text-slate-300">Homes@HeyBerkshire.com</div>
+                  <div className="text-slate-300">{agentInfo.email}</div>
                 </div>
               </a>
             </div>
@@ -320,7 +334,6 @@ export default function ContactPage() {
         {/* Last Updated */}
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

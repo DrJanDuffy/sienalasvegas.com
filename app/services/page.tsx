@@ -20,11 +20,13 @@ import {
   ArrowRight,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Real Estate Services Las Vegas | Berkshire Hathaway HomeServices",
   description:
     "Comprehensive real estate services from Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties. Buying, selling, luxury, investment, relocation, 55+ communities, and new construction. Call (702) 500-1942.",
+  path: "/services",
   keywords: [
     "Las Vegas real estate services",
     "Berkshire Hathaway services",
@@ -34,7 +36,7 @@ export const metadata: Metadata = {
     "55+ community specialist",
     "California relocation Las Vegas",
   ],
-};
+});
 
 const servicesSchema = {
   "@context": "https://schema.org",
@@ -181,11 +183,8 @@ export default function ServicesPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Las Vegas Real Estate Services
             </h1>
-            <p className="text-xl text-slate-600 mb-8">
-              Comprehensive real estate solutions from Dr. Jan Duffy, backed by the most trusted
-              name in the business—<strong>Berkshire Hathaway HomeServices</strong>. Whether you're 
-              buying your first home, selling a luxury estate, or relocating from California, 
-              you'll receive expert guidance every step of the way.
+            <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
+              Las Vegas real estate services from Dr. Jan Duffy at Berkshire Hathaway HomeServices include buying (free representation), selling (world-class marketing), luxury homes, new construction, 55+ communities, investment properties, and California relocation. Serving Las Vegas since 2008. Call (702) 500-1942.
             </p>
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               <div className="flex items-center">
@@ -202,6 +201,9 @@ export default function ServicesPage() {
               </div>
             </div>
           </div>
+
+          {/* RealScout Widget - lead generator below hero, above the fold */}
+          <RealScoutListings />
 
           {/* Core Services Section */}
           <section className="mb-16 max-w-6xl mx-auto">
@@ -510,7 +512,6 @@ export default function ServicesPage() {
         {/* Last Updated */}
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

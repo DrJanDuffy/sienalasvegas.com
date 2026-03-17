@@ -18,11 +18,13 @@ import {
   HelpCircle,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Berkshire Hathaway HomeServices New Construction Las Vegas | Buyer's Guide",
   description:
     "Free buyer representation on new construction homes in Las Vegas. Dr. Jan Duffy helps you navigate builder contracts, negotiate upgrades, and secure incentives. Call (702) 500-1942.",
+  path: "/new-construction",
   keywords: [
     "Berkshire Hathaway HomeServices new construction Las Vegas",
     "new homes Las Vegas",
@@ -32,7 +34,7 @@ export const metadata: Metadata = {
     "Lennar Las Vegas",
     "KB Home Las Vegas",
   ],
-};
+});
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -257,9 +259,8 @@ export default function NewConstructionPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Berkshire Hathaway HomeServices New Construction Las Vegas
             </h1>
-            <p className="text-xl text-slate-600 mb-8">
-              Your complete buyer's guide to new homes in Las Vegas. Free representation,
-              expert contract review, and insider knowledge of builder incentives.
+            <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
+              New construction in Las Vegas includes builder communities in Summerlin, Henderson, and the valley. Dr. Jan Duffy at Berkshire Hathaway HomeServices provides free buyer representation, contract review, and builder-incentive guidance so you get the best deal. Call (702) 500-1942.
             </p>
             <div className="bg-amber-50 border border-amber-200 rounded-xl p-6 text-left max-w-2xl mx-auto">
               <div className="flex items-start">
@@ -278,6 +279,9 @@ export default function NewConstructionPage() {
               </div>
             </div>
           </div>
+
+          {/* RealScout Widget - lead generator below hero, above the fold */}
+          <RealScoutListings />
 
           {/* Why Free Representation */}
           <section className="mb-16 bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
@@ -693,7 +697,6 @@ export default function NewConstructionPage() {
           Last Updated: January 2026 | Incentives subject to change
         </div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

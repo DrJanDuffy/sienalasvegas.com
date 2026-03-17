@@ -4,11 +4,13 @@ import RealScoutListings from "@/components/realscout/RealScoutListingsDynamic";
 import Link from "next/link";
 import { Phone, Waves, TreePine, GraduationCap, Home as HomeIcon } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Berkshire Hathaway HomeServices Inspirada | Henderson Resort Living",
   description:
     "Find Inspirada homes with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy specializes in Henderson's resort-style community. Median price $525K. Call (702) 500-1942.",
+  path: "/neighborhoods/inspirada",
   keywords: [
     "Berkshire Hathaway HomeServices Inspirada",
     "Inspirada homes for sale",
@@ -16,7 +18,7 @@ export const metadata: Metadata = {
     "Henderson master planned",
     "resort style community",
   ],
-};
+});
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -86,11 +88,13 @@ export default function InspiradaPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Berkshire Hathaway HomeServices Inspirada
             </h1>
-            <p className="text-xl text-slate-600">
-              Resort-style living in Henderson. Discover Inspirada with{" "}
-              <strong>Berkshire Hathaway HomeServices</strong> and Dr. Jan Duffy.
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Inspirada is a resort-style master-planned community in Henderson with pools, parks, and new builds. Dr. Jan Duffy at Berkshire Hathaway HomeServices represents buyers and sellers in Inspirada; median price ~$525K. Free home search and valuation. Call (702) 500-1942.
             </p>
           </div>
+
+          {/* RealScout Widget - lead generator below hero, above the fold */}
+          <RealScoutListings />
 
           {/* Market Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
@@ -386,7 +390,6 @@ export default function InspiradaPage() {
         </div>
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

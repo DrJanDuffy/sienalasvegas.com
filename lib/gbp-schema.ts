@@ -1,8 +1,10 @@
 // Google Business Profile Schema Data
 // Supports GBP ranking factors: Relevance, Distance, Prominence
 
+import { agentInfo, siteConfig } from "@/lib/site-config";
+
 export const businessInfo = {
-  // NAP - Must match GBP exactly
+  // NAP - Must match GBP exactly (url/email from site-config for single source of truth)
   name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
   address: {
     streetAddress: "10525 Siena Monte Avenue",
@@ -12,11 +14,11 @@ export const businessInfo = {
     addressCountry: "US",
   },
   phone: {
-    display: "(702) 500-1942",
-    tel: "+17025001942",
+    display: agentInfo.phoneFormatted,
+    tel: agentInfo.phoneTel.replace("tel:", ""),
   },
-  email: "homes@heyberkshire.com",
-  url: "https://heyberkshire.com",
+  email: agentInfo.email,
+  url: siteConfig.url,
 
   // Business Details
   license: "S.0197614.LLC",
@@ -213,9 +215,9 @@ export function generateLocalBusinessSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
-    "@id": "https://heyberkshire.com/#organization",
+    "@id": `${siteConfig.url}/#organization`,
     name: businessInfo.name,
-    image: "https://heyberkshire.com/images/dr-jan-duffy.jpg",
+    image: `${siteConfig.url}/images/dr-jan-duffy.jpg`,
     url: businessInfo.url,
     telephone: businessInfo.phone.tel,
     email: businessInfo.email,

@@ -3,18 +3,15 @@ import Footer from "@/components/layouts/Footer";
 import Link from "next/link";
 import { Landmark, Utensils, ShoppingBag, Music, Trophy, TreePine } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 import { sienaLocalAttractionsPage } from "@/lib/siena-pages";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Local Attractions Near Siena | Museums, Shopping, Sports, Parks | Dr. Jan Duffy",
   description:
     "Attractions, museums, restaurants, shopping, shows, sports teams, and state & national parks near Siena Las Vegas. Dr. Jan Duffy, Siena real estate.",
-  openGraph: {
-    title: "Local Attractions Near Siena",
-    description:
-      "Museums, restaurants, shopping, Smith Center, Raiders, Golden Knights, Aces, Red Rock Canyon, Lake Mead & more.",
-  },
-};
+  path: "/55-plus-communities/siena/local-attractions",
+});
 
 export default function SienaLocalAttractionsPage() {
   const data = sienaLocalAttractionsPage;

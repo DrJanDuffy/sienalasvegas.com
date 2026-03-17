@@ -4,6 +4,7 @@ import RealScoutListings from "@/components/realscout/RealScoutListingsDynamic";
 import Link from "next/link";
 import { Phone } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 import SchemaScript from "@/components/SchemaScript";
 import {
   generateBreadcrumbSchema,
@@ -12,10 +13,11 @@ import {
   combineSchemas,
 } from "@/lib/schema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "FAQ | Berkshire Hathaway HomeServices Las Vegas Real Estate",
   description:
     "Frequently asked questions about Las Vegas real estate, Berkshire Hathaway HomeServices, buying, selling, and working with Dr. Jan Duffy at BHHS Nevada Properties.",
+  path: "/faq",
   keywords: [
     "Berkshire Hathaway HomeServices FAQ",
     "Las Vegas real estate questions",
@@ -23,7 +25,7 @@ export const metadata: Metadata = {
     "selling a home Henderson",
     "BHHS agent questions",
   ],
-};
+});
 
 // Breadcrumb items
 const breadcrumbs = [
@@ -193,11 +195,13 @@ export default function FAQPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Frequently Asked Questions
             </h1>
-            <p className="text-xl text-slate-600">
-              Everything you need to know about working with{" "}
-              <strong>Berkshire Hathaway HomeServices</strong> in Las Vegas
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Berkshire Hathaway HomeServices is the only real estate brand backed by Warren Buffett's Berkshire Hathaway Inc. BHHS Nevada Properties serves Las Vegas, Henderson, Summerlin, and Southern Nevada. Dr. Jan Duffy has been a BHHS agent since 2008. Below are common questions about buying, selling, and working with Berkshire Hathaway HomeServices in Las Vegas.
             </p>
           </div>
+
+          {/* RealScout Widget - lead generator below hero, above the fold */}
+          <RealScoutListings />
 
           {/* FAQ Categories */}
           <div className="max-w-4xl mx-auto space-y-12">
@@ -241,7 +245,6 @@ export default function FAQPage() {
         {/* Last Updated */}
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

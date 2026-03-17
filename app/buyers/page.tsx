@@ -19,11 +19,15 @@ import {
   ArrowRight,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
+import SchemaScript from "@/components/SchemaScript";
+import { generateHowToSchema, combineSchemas } from "@/lib/schema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Home Buying Guide Las Vegas | Berkshire Hathaway HomeServices",
   description:
     "Looking to buy a home in Las Vegas? Dr. Jan Duffy with Berkshire Hathaway HomeServices Nevada Properties guides you through every step. Free buyer consultation. Call (702) 500-1942.",
+  path: "/buyers",
   keywords: [
     "buy home Las Vegas",
     "Las Vegas home buyer",
@@ -33,7 +37,7 @@ export const metadata: Metadata = {
     "California relocation Las Vegas",
     "55+ communities Las Vegas",
   ],
-};
+});
 
 const buyerSchema = {
   "@context": "https://schema.org",
@@ -81,6 +85,16 @@ const buyingSteps = [
   },
 ];
 
+const howToBuySchema = generateHowToSchema({
+  name: "How to Buy a Home in Las Vegas",
+  description:
+    "Step-by-step guide to purchasing a home in Las Vegas with Dr. Jan Duffy and Berkshire Hathaway HomeServices. From pre-approval to closing.",
+  url: "/buyers",
+  steps: buyingSteps.map((s) => ({ name: s.title, text: s.description })),
+});
+
+const buyersPageSchema = combineSchemas(buyerSchema, howToBuySchema);
+
 const neighborhoods = [
   { name: "Summerlin", price: "$625K", description: "Master-planned community with Red Rock views" },
   { name: "Henderson", price: "$485K", description: "Family-friendly with low crime rates" },
@@ -93,10 +107,7 @@ const neighborhoods = [
 export default function BuyersPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(buyerSchema) }}
-      />
+      <SchemaScript schema={buyersPageSchema} id="buyers-page-schema" />
       <Navbar />
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4">
@@ -108,10 +119,8 @@ export default function BuyersPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Buy Your Las Vegas Home with Confidence
             </h1>
-            <p className="text-xl text-slate-600 mb-8">
-              When you work with a <strong>Berkshire Hathaway HomeServices</strong> buyer's agent,
-              you're backed by the most trusted name in real estate—and it costs you nothing.
-              The seller pays the commission, but the representation is yours.
+            <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
+              A buyer's agent represents you when purchasing a Las Vegas home at no cost to you—the seller pays the commission. Dr. Jan Duffy at Berkshire Hathaway HomeServices provides full MLS access, expert negotiation, and guidance from pre-approval to closing. Free buyer representation since 2008. Call (702) 500-1942.
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm text-slate-500">
               <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-1" /> Free Buyer Representation</span>
@@ -119,6 +128,9 @@ export default function BuyersPage() {
               <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-1" /> Expert Negotiation</span>
             </div>
           </div>
+
+          {/* RealScout Widget - lead generator below hero, above the fold */}
+          <RealScoutListings />
 
           {/* Value Prop */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
@@ -465,7 +477,6 @@ export default function BuyersPage() {
         {/* Last Updated */}
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

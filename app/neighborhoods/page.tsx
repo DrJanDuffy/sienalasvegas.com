@@ -4,11 +4,13 @@ import RealScoutListings from "@/components/realscout/RealScoutListingsDynamic";
 import Link from "next/link";
 import { MapPin, Phone, Home, Users, GraduationCap } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Siena & Las Vegas 55+ Communities | Dr. Jan Duffy",
   description:
     "Explore Siena and Las Vegas 55+ communities with Dr. Jan Duffy. Siena, Sun City Summerlin, Del Webb, Heritage at Stonebridge, Henderson & area neighborhoods.",
+  path: "/neighborhoods",
   keywords: [
     "Siena Las Vegas",
     "55+ communities Las Vegas",
@@ -16,7 +18,7 @@ export const metadata: Metadata = {
     "Sun City Summerlin",
     "active adult communities",
   ],
-};
+});
 
 const neighborhoods = [
   {
@@ -135,10 +137,13 @@ export default function NeighborhoodsPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Siena & Las Vegas 55+ Communities
             </h1>
-            <p className="text-xl text-slate-600">
-              Your hyper-local expert for <strong>Siena</strong> and Las Vegas active-adult communities. Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Explore Siena and Las Vegas neighborhoods and 55+ communities with Dr. Jan Duffy at Berkshire Hathaway HomeServices. From Siena and Sun City Summerlin to Summerlin, Henderson, Green Valley, and The Ridges—compare median prices, amenities, and find your next home. Call (702) 500-1942.
             </p>
           </div>
+
+          {/* RealScout Widget - lead generator below hero, above the fold */}
+          <RealScoutListings />
 
           {/* Neighborhood Grid */}
           <section className="mb-16 max-w-6xl mx-auto">
@@ -246,7 +251,6 @@ export default function NeighborhoodsPage() {
         {/* Last Updated */}
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

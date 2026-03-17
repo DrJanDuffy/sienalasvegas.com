@@ -14,11 +14,13 @@ import {
   TrendingUp,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Sun City Aliante Homes for Sale | Most Affordable Sun City | Dr. Jan Duffy",
   description:
     "Sun City Aliante - the most affordable Sun City in Las Vegas. Homes from $280K-$550K with full amenities. 18-hole golf course, pools, fitness center. Dr. Jan Duffy, BHHS. Call (702) 500-1942.",
+  path: "/55-plus-communities/sun-city-aliante",
   keywords: [
     "Sun City Aliante homes for sale",
     "Sun City Aliante Las Vegas",
@@ -27,13 +29,7 @@ export const metadata: Metadata = {
     "Sun City Aliante HOA fees",
     "Berkshire Hathaway Sun City Aliante",
   ],
-  openGraph: {
-    title: "Sun City Aliante - Most Affordable Sun City in Las Vegas",
-    description:
-      "Full amenities at the lowest price point. Golf, pools, fitness, 100+ clubs. From $280K. Dr. Jan Duffy, BHHS Nevada Properties.",
-    type: "website",
-  },
-};
+});
 
 const communitySchema = {
   "@context": "https://schema.org",
@@ -88,11 +84,13 @@ export default function SunCityAliantePage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Sun City Aliante
             </h1>
-            <p className="text-xl text-slate-600">
-              Full Sun City amenities at the best value. Golf, pools, fitness, and
-              100+ clubs—from $280K.
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Sun City Aliante offers full Sun City amenities in North Las Vegas at the best value—golf, pools, fitness, and 100+ clubs with homes from the $280s. Dr. Jan Duffy at Berkshire Hathaway HomeServices lists and sells Sun City Aliante homes. Free buyer representation. Call (702) 500-1942.
             </p>
           </div>
+
+          {/* RealScout Widget - lead generator below hero, above the fold */}
+          <RealScoutListings />
 
           {/* Quick Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
@@ -435,7 +433,6 @@ export default function SunCityAliantePage() {
           Last Updated: January 2026
         </div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

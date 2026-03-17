@@ -17,11 +17,16 @@ import {
   ArrowRight,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
+import { agentInfo, siteConfig } from "@/lib/site-config";
+import SchemaScript from "@/components/SchemaScript";
+import { generateWebPageSchema, combineSchemas } from "@/lib/schema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "About Dr. Jan Duffy | Berkshire Hathaway HomeServices Las Vegas",
   description:
     "Meet Dr. Jan Duffy, your trusted Berkshire Hathaway HomeServices Nevada Properties agent. Serving Las Vegas since 2008, $127M+ in transactions, Henderson & Summerlin specialist. Call (702) 500-1942.",
+  path: "/about",
   keywords: [
     "Dr. Jan Duffy",
     "Berkshire Hathaway HomeServices agent",
@@ -30,7 +35,7 @@ export const metadata: Metadata = {
     "Henderson real estate agent",
     "Summerlin realtor",
   ],
-};
+});
 
 // Person Schema for Dr. Jan Duffy
 const personSchema = {
@@ -40,9 +45,9 @@ const personSchema = {
   jobTitle: "REALTOR®",
   description:
     "Licensed real estate agent with Berkshire Hathaway HomeServices Nevada Properties, serving Las Vegas, Henderson, and Summerlin since 2008.",
-  telephone: "+17025001942",
-  email: "homes@heyberkshire.com",
-  url: "https://heyberkshire.com/about",
+  telephone: agentInfo.phoneTel.replace("tel:", ""),
+  email: agentInfo.email,
+  url: `${siteConfig.url}/about`,
   worksFor: {
     "@type": "RealEstateAgent",
     name: "Berkshire Hathaway HomeServices Nevada Properties",
@@ -69,6 +74,17 @@ const personSchema = {
     "California relocation",
   ],
 };
+
+const aboutPageSchema = combineSchemas(
+  generateWebPageSchema({
+    name: "About Dr. Jan Duffy | Berkshire Hathaway HomeServices Las Vegas",
+    description:
+      "Meet Dr. Jan Duffy, your trusted Berkshire Hathaway HomeServices Nevada Properties agent. Serving Las Vegas since 2008, $127M+ in transactions, Henderson & Summerlin specialist.",
+    url: "/about",
+    dateModified: "2026-01",
+  }),
+  personSchema
+);
 
 const specializations = [
   {
@@ -115,10 +131,7 @@ const areasServed = [
 export default function AboutPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
-      />
+      <SchemaScript schema={aboutPageSchema} id="about-page-schema" />
       <Navbar />
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4">
@@ -130,12 +143,22 @@ export default function AboutPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Meet Your Berkshire Hathaway HomeServices Agent
             </h1>
-            <p className="text-xl text-slate-600">
-              Dr. Jan Duffy has been serving Las Vegas since 2008—backed by the most
-              trusted name in real estate. Whether you're buying, selling, investing, or 
-              relocating, you'll receive expert guidance with integrity and professionalism.
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Dr. Jan Duffy is a REALTOR® with Berkshire Hathaway HomeServices Nevada Properties, serving Las Vegas, Henderson, and Summerlin since 2008. With over $127 million in closed transactions, she specializes in luxury homes, 55+ communities (including Siena), new construction, investment properties, and California-to-Nevada relocations. Backed by Warren Buffett's Berkshire Hathaway Inc., she offers world-class marketing for sellers and free buyer representation. License S.0197614.LLC. Office: 10525 Siena Monte Avenue, Las Vegas, NV. Call (702) 500-1942 for a free consultation.
             </p>
+            <div className="mt-8 p-6 bg-slate-50 rounded-xl max-w-2xl mx-auto text-left">
+              <h2 className="text-lg font-bold text-slate-900 mb-3">At a glance</h2>
+              <ul className="space-y-2 text-slate-700">
+                <li><strong>Who:</strong> Dr. Jan Duffy, REALTOR® (License S.0197614.LLC)</li>
+                <li><strong>Where:</strong> Las Vegas, Henderson, Summerlin, Siena, Southern Nevada</li>
+                <li><strong>Services:</strong> Buy, sell, luxury, 55+ communities, new construction, investment, relocation</li>
+                <li><strong>Contact:</strong> (702) 500-1942 | 10525 Siena Monte Avenue, Las Vegas, NV 89135</li>
+              </ul>
+            </div>
           </div>
+
+          {/* RealScout Widget - lead generator below hero, above the fold */}
+          <RealScoutListings />
 
           {/* Agent Profile */}
           <section className="mb-16">
@@ -459,7 +482,6 @@ export default function AboutPage() {
           Last Updated: January 2026
         </div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

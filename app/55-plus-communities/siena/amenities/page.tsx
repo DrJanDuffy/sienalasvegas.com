@@ -3,18 +3,15 @@ import Footer from "@/components/layouts/Footer";
 import Link from "next/link";
 import { Home as HomeIcon, Clock, Building2, Dumbbell, Sparkles } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 import { sienaAmenitiesPage } from "@/lib/siena-pages";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Siena Amenities | Community Center, Fitness, Salon & Spa | Dr. Jan Duffy",
   description:
     "Siena Community Center with Library, Rotunda, game rooms & events. 16,000 sq ft Fitness Center, Salon & Spa, room rentals. Hours and details. Dr. Jan Duffy, Siena real estate.",
-  openGraph: {
-    title: "Siena Amenities | Community Center, Fitness, Salon & Spa",
-    description:
-      "Community Center (Mon–Sun hours), Room Rentals, 16,000 sq ft Fitness Center, Siena Salon & Spa.",
-  },
-};
+  path: "/55-plus-communities/siena/amenities",
+});
 
 export default function SienaAmenitiesPage() {
   const hours = sienaAmenitiesPage.communityCenter.hours;
@@ -41,9 +38,12 @@ export default function SienaAmenitiesPage() {
               <span className="text-slate-900">Amenities</span>
             </nav>
 
-            <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8">
+            <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
               {sienaAmenitiesPage.title}
             </h1>
+            <p className="text-xl text-slate-600 max-w-3xl mb-8">
+              Siena amenities include a community center, pools, fitness, tennis, and over 50 clubs and groups. Dr. Jan Duffy at Berkshire Hathaway HomeServices is your Siena real estate expert for buying or selling in this Summerlin 55+ community. Call (702) 500-1942.
+            </p>
 
             {/* Community Center */}
             <section className="mb-12">

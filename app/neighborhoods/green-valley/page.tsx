@@ -4,11 +4,15 @@ import RealScoutListings from "@/components/realscout/RealScoutListingsDynamic";
 import Link from "next/link";
 import { Phone, TreePine, ShoppingBag, GraduationCap, MapPin } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
+import SchemaScript from "@/components/SchemaScript";
+import { generateWebPageSchema, combineSchemas } from "@/lib/schema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Berkshire Hathaway HomeServices Green Valley | Henderson Real Estate",
   description:
     "Find Green Valley homes with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy specializes in Henderson's most established community. Median price $520K. Call (702) 500-1942.",
+  path: "/neighborhoods/green-valley",
   keywords: [
     "Berkshire Hathaway HomeServices Green Valley",
     "Green Valley homes for sale",
@@ -16,7 +20,7 @@ export const metadata: Metadata = {
     "Green Valley real estate",
     "Green Valley Ranch",
   ],
-};
+});
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -57,13 +61,21 @@ const faqSchema = {
   ],
 };
 
+const greenValleyPageSchema = combineSchemas(
+  generateWebPageSchema({
+    name: "Berkshire Hathaway HomeServices Green Valley | Henderson Real Estate",
+    description:
+      "Find Green Valley homes with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy specializes in Henderson's most established community. Median price $520K.",
+    url: "/neighborhoods/green-valley",
+    dateModified: "2026-01",
+  }),
+  faqSchema
+);
+
 export default function GreenValleyPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <SchemaScript schema={greenValleyPageSchema} id="green-valley-page-schema" />
       <Navbar />
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4">
@@ -86,11 +98,22 @@ export default function GreenValleyPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Berkshire Hathaway HomeServices Green Valley
             </h1>
-            <p className="text-xl text-slate-600">
-              Henderson's original master-planned community. Find your Green Valley home with{" "}
-              <strong>Berkshire Hathaway HomeServices</strong> and Dr. Jan Duffy.
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Green Valley is Henderson's original master-planned community, established in 1988. It offers mature landscaping, top-rated schools, and a median home price of $520,000 (January 2026). Dr. Jan Duffy with Berkshire Hathaway HomeServices Nevada Properties specializes in Green Valley real estate and helps buyers and sellers throughout the Las Vegas Valley. The community includes The District at Green Valley Ranch, parks, and family-friendly neighborhoods. For a free home valuation or to search Green Valley listings, call (702) 500-1942.
             </p>
+            <div className="mt-8 p-6 bg-slate-50 rounded-xl max-w-2xl mx-auto text-left">
+              <h2 className="text-lg font-bold text-slate-900 mb-3">At a glance</h2>
+              <ul className="space-y-2 text-slate-700">
+                <li><strong>What:</strong> Henderson's original master-planned community (since 1988)</li>
+                <li><strong>Median price:</strong> $520,000 (Jan 2026) | YoY appreciation +4.8%</li>
+                <li><strong>Highlights:</strong> Mature trees, top schools, The District at Green Valley Ranch</li>
+                <li><strong>Agent:</strong> Dr. Jan Duffy, Berkshire Hathaway HomeServices — (702) 500-1942</li>
+              </ul>
+            </div>
           </div>
+
+          {/* RealScout Widget - lead generator below hero, above the fold */}
+          <RealScoutListings />
 
           {/* Market Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
@@ -365,7 +388,6 @@ export default function GreenValleyPage() {
         </div>
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

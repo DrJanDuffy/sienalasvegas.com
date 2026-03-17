@@ -19,11 +19,13 @@ import {
   Globe,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Relocating to Las Vegas | Berkshire Hathaway HomeServices",
   description:
     "Moving to Las Vegas? Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties provides comprehensive relocation services. Schools, neighborhoods, cost of living. Call (702) 500-1942.",
+  path: "/relocation",
   keywords: [
     "relocating to Las Vegas",
     "moving to Las Vegas",
@@ -34,7 +36,7 @@ export const metadata: Metadata = {
     "moving from California to Nevada",
     "Las Vegas real estate relocation",
   ],
-};
+});
 
 const relocationSchema = {
   "@context": "https://schema.org",
@@ -121,11 +123,8 @@ export default function RelocationPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Relocating to Las Vegas?
             </h1>
-            <p className="text-xl text-slate-600 mb-8">
-              <strong>Berkshire Hathaway HomeServices</strong> makes your move seamless. With
-              50,000+ agents nationwide, we coordinate your relocation from anywhere in the country.
-              Whether you're moving from California, the Midwest, or across the globe, Dr. Jan Duffy 
-              provides comprehensive relocation services to ensure your transition is stress-free.
+            <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
+              Relocating to Las Vegas? Dr. Jan Duffy at Berkshire Hathaway HomeServices coordinates your move from anywhere—California, the Midwest, or out of state. Get neighborhood matching, home search, and closing coordination so your transition is stress-free. Free buyer representation. Call (702) 500-1942.
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm text-slate-500">
               <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-1" /> 50,000+ Agent Network</span>
@@ -133,6 +132,9 @@ export default function RelocationPage() {
               <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-1" /> School Research</span>
             </div>
           </div>
+
+          {/* RealScout Widget - lead generator below hero, above the fold */}
+          <RealScoutListings />
 
           {/* Why Las Vegas */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
@@ -449,7 +451,6 @@ export default function RelocationPage() {
         {/* Last Updated */}
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

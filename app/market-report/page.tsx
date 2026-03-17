@@ -4,11 +4,13 @@ import RealScoutListings from "@/components/realscout/RealScoutListingsDynamic";
 import Link from "next/link";
 import { TrendingUp, TrendingDown, Home, Calendar, DollarSign, BarChart, Phone } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Las Vegas Real Estate Market Report January 2026 | Berkshire Hathaway HomeServices",
   description:
     "Get the latest Las Vegas real estate market statistics for January 2026. Median prices, days on market, inventory levels, and expert analysis from Berkshire Hathaway HomeServices Nevada Properties.",
+  path: "/market-report",
   keywords: [
     "Las Vegas real estate market",
     "Las Vegas home prices 2026",
@@ -16,7 +18,7 @@ export const metadata: Metadata = {
     "Nevada housing market",
     "Berkshire Hathaway market report",
   ],
-};
+});
 
 // Report Schema
 const reportSchema = {
@@ -53,11 +55,13 @@ export default function MarketReportPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Las Vegas Real Estate Market Report
             </h1>
-            <p className="text-xl text-slate-600">
-              January 2026 | Expert analysis from{" "}
-              <strong>Berkshire Hathaway HomeServices Nevada Properties</strong>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Las Vegas real estate market report: median prices, days on market, inventory, and year-over-year trends for the Las Vegas Valley. Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties provides expert analysis. Updated January 2026. Call (702) 500-1942.
             </p>
           </div>
+
+          {/* RealScout Widget - lead generator below hero, above the fold */}
+          <RealScoutListings />
 
           {/* Key Stats Overview */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-6xl mx-auto">
@@ -318,7 +322,6 @@ export default function MarketReportPage() {
         {/* Last Updated */}
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );
