@@ -13,7 +13,7 @@ export const defaultFaqs: FAQ[] = [
   {
     question: "What areas do you serve?",
     answer:
-      "We specialize in Siena and Las Vegas 55+ communities—including Siena (10525 Siena Monte Ave), Sun City Summerlin, Del Webb Lake Las Vegas, Heritage at Stonebridge, and other active-adult neighborhoods. Dr. Jan also serves Summerlin, Henderson, and the greater Las Vegas area.",
+      "We specialize in Siena and Las Vegas 55+ communities—including Siena (10525 Siena Monte Avenue), Sun City Summerlin, Del Webb Lake Las Vegas, Heritage at Stonebridge, and other active-adult neighborhoods. Dr. Jan also serves Summerlin, Henderson, and the greater Las Vegas area.",
   },
   {
     question: "How long does the home buying process take?",

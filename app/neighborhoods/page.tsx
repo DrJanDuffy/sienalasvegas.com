@@ -25,7 +25,7 @@ const neighborhoods = [
     medianPrice: "—",
     priceChange: "—",
     description: "Premier 55+ guard-gated community with championship golf, Community Center, and clubs",
-    highlights: ["Siena Golf Course", "Guard-Gated", "Community Center", "10525 Siena Monte Ave"],
+    highlights: ["Siena Golf Course", "Guard-Gated", "Community Center", "10525 Siena Monte Avenue"],
     bestFor: "Active adults 55+, golfers, community-focused living",
     href: "/55-plus-communities/siena",
   },

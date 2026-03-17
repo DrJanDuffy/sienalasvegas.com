@@ -11,7 +11,7 @@ export const siteConfig = {
   shortName: "BHHS",
   url: "https://www.sienalasvegas.com",
   description:
-    "Homes for sale in Siena, Las Vegas's premier 55+ community. Golf course living, guard-gated security, Community Center & clubs. Dr. Jan Duffy, BHHS Nevada Properties. 10525 Siena Monte Ave. Call (702) 500-1942.",
+    "Homes for sale in Siena, Las Vegas's premier 55+ community. Golf course living, guard-gated security, Community Center & clubs. Dr. Jan Duffy, BHHS Nevada Properties. 10525 Siena Monte Avenue. Call (702) 500-1942.",
 };
 
 export const agentInfo = {
@@ -28,11 +28,11 @@ export const agentInfo = {
 export const officeInfo = {
   name: "Berkshire Hathaway HomeServices Nevada Properties",
   address: {
-    street: "10525 Siena Monte Ave",
+    street: "10525 Siena Monte Avenue",
     city: "Las Vegas",
     state: "NV",
     zip: "89135",
-    full: "10525 Siena Monte Ave, Las Vegas, NV 89135",
+    full: "10525 Siena Monte Avenue, Las Vegas, NV 89135",
   },
   coordinates: {
     lat: 36.1893,
@@ -104,11 +104,11 @@ export const sienaCommunity = {
   description:
     "In 1998, the vision for Siena was born. Siena surrounds a public, 18-hole championship golf course and is one of the most beautiful, active, and friendly age-privileged communities in the country. Residents enjoy an abundance of amenities and activities. Our residents consider Siena a paradise.",
   address: {
-    street: "10525 Siena Monte Ave",
+    street: "10525 Siena Monte Avenue",
     city: "Las Vegas",
     state: "NV",
     zip: "89135",
-    full: "10525 Siena Monte Ave, Las Vegas, NV 89135",
+    full: "10525 Siena Monte Avenue, Las Vegas, NV 89135",
   },
   streetDisplay: "10525 Siena Monte Avenue",
   hoaPhone: "(702) 258-2500",
@@ -150,7 +150,7 @@ export const neighborhoods = [
     slug: "siena",
     description: "Premier 55+ guard-gated community with championship golf, Community Center, and Spring Mountain views",
     medianPrice: "Varies",
-    highlights: ["Siena Golf Course", "Guard-gated", "Community Center", "Clubs & events", "10525 Siena Monte Ave"],
+    highlights: ["Siena Golf Course", "Guard-gated", "Community Center", "Clubs & events", "10525 Siena Monte Avenue"],
   },
   {
     name: "Summerlin",

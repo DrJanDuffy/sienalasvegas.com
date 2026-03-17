@@ -20,7 +20,7 @@ import { sienaCommunity } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "Siena 55+ Community Las Vegas | Golf, Guard-Gated | Dr. Jan Duffy",
   description:
-    "Siena — premier 55+ community in Las Vegas. Schmidt-Curley golf course, Community Center, guard-gated security, clubs & events. 10525 Siena Monte Ave. Dr. Jan Duffy, BHHS. Call (702) 500-1942.",
+    "Siena — premier 55+ community in Las Vegas. Schmidt-Curley golf course, Community Center, guard-gated security, clubs & events. 10525 Siena Monte Avenue. Dr. Jan Duffy, BHHS. Call (702) 500-1942.",
   keywords: [
     "Siena Las Vegas",
     "Siena 55+ community",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Siena — Premier 55+ Community in Las Vegas | Dr. Jan Duffy",
     description:
-      "Championship golf, Community Center, guard-gated security. 10525 Siena Monte Ave. Active adult living with Spring Mountain views.",
+      "Championship golf, Community Center, guard-gated security. 10525 Siena Monte Avenue. Active adult living with Spring Mountain views.",
     type: "website",
   },
 };
@@ -46,7 +46,7 @@ const communitySchema = {
     "Premier 55+ guard-gated community in Las Vegas with championship golf, Community Center, and Spring Mountain backdrop.",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "10525 Siena Monte Ave",
+    streetAddress: "10525 Siena Monte Avenue",
     addressLocality: "Las Vegas",
     addressRegion: "NV",
     postalCode: "89135",
@@ -119,7 +119,7 @@ export default function SienaPage() {
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-emerald-400 mb-1">
-                  10525 Siena Monte Ave
+                  10525 Siena Monte Avenue
                 </div>
                 <div className="text-slate-300 text-sm">Las Vegas, NV 89135</div>
               </div>

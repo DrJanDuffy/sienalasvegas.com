@@ -5,7 +5,7 @@ export const businessInfo = {
   // NAP - Must match GBP exactly
   name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
   address: {
-    streetAddress: "10525 Siena Monte Ave",
+    streetAddress: "10525 Siena Monte Avenue",
     addressLocality: "Las Vegas",
     addressRegion: "NV",
     postalCode: "89135",
@@ -33,10 +33,10 @@ export const businessInfo = {
     sunday: "By Appointment",
   },
 
-  // Geo coordinates for distance ranking
+  // Geo coordinates for Siena address (distance ranking)
   geo: {
-    latitude: 36.1941,
-    longitude: -115.2678,
+    latitude: 36.1893,
+    longitude: -115.2821,
   },
 
   // Service areas - Start focused, expand with prominence
@@ -161,7 +161,7 @@ Dr. Jan's approach is simple: treat every client like family, know the market in
 
 55+ active adult community specialization covers Sun City Summerlin (Nevada's largest 55+ community), Sun City Anthem in Henderson, Del Webb Lake Las Vegas, and Solera at Anthem. Investment property expertise spans single-family rentals, multi-family opportunities, and short-term rental analysis across the Las Vegas metro area.
 
-Office located at 10525 Siena Monte Ave, Las Vegas, NV 89135. Available Monday through Friday 9am-6pm, Saturday 10am-4pm, and Sunday by appointment. Call (702) 500-1942 for a free consultation or visit sienalasvegas.com to start your Las Vegas real estate journey today.`,
+Office located at 10525 Siena Monte Avenue, Las Vegas, NV 89135. Available Monday through Friday 9am-6pm, Saturday 10am-4pm, and Sunday by appointment. Call (702) 500-1942 for a free consultation or visit sienalasvegas.com to start your Las Vegas real estate journey today.`,
 };
 
 // FAQ Schema for GBP Q&A section
@@ -200,7 +200,7 @@ export const gbpFAQs = [
   },
   {
     question: "How do I schedule a consultation with Dr. Jan Duffy?",
-    answer: "Call or text (702) 500-1942 for immediate assistance, or email homes@heyberkshire.com. Office visits available at 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134. Monday-Friday 9am-6pm, Saturday 10am-4pm, Sunday by appointment.",
+    answer: "Call or text (702) 500-1942 for immediate assistance, or email homes@sienalasvegas.com. Office visits available at 10525 Siena Monte Avenue, Las Vegas, NV 89135. Monday-Friday 9am-6pm, Saturday 10am-4pm, Sunday by appointment.",
   },
   {
     question: "Does Dr. Jan help with investment properties in Las Vegas?",

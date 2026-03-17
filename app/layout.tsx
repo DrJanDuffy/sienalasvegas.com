@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     "Las Vegas real estate",
     "Siena golf",
     "guard-gated 55+",
-    "Siena Monte Ave",
+    "Siena Monte Avenue",
     "sienalasvegas.com",
   ],
   openGraph: {

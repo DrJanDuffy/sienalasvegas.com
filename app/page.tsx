@@ -33,7 +33,7 @@ const organizationSchema = {
   telephone: "+17025001942",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "10525 Siena Monte Ave",
+    streetAddress: "10525 Siena Monte Avenue",
     addressLocality: "Las Vegas",
     addressRegion: "NV",
     postalCode: "89135",
@@ -63,7 +63,7 @@ const faqSchema = {
       name: "What areas does Dr. Jan Duffy serve?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Dr. Jan specializes in Siena and Las Vegas 55+ communities, with deep expertise at Siena (10525 Siena Monte Ave), Sun City Summerlin, Del Webb Lake Las Vegas, Heritage at Stonebridge, and other active-adult communities in the Las Vegas area.",
+        text: "Dr. Jan specializes in Siena and Las Vegas 55+ communities, with deep expertise at Siena (10525 Siena Monte Avenue), Sun City Summerlin, Del Webb Lake Las Vegas, Heritage at Stonebridge, and other active-adult communities in the Las Vegas area.",
       },
     },
     {
@@ -71,7 +71,7 @@ const faqSchema = {
       name: "How do I contact Dr. Jan Duffy for Siena real estate?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Call (702) 500-1942 or email homes@sienalasvegas.com. Office at 10525 Siena Monte Ave, Las Vegas, NV 89135.",
+        text: "Call (702) 500-1942 or email homes@sienalasvegas.com. Office at 10525 Siena Monte Avenue, Las Vegas, NV 89135.",
       },
     },
     {
