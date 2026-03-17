@@ -53,16 +53,18 @@ export default function HeroSection() {
         ))}
       </div>
 
-      {/* Content */}
+      {/* Content - min-height reserves space for LCP text to reduce CLS (Lighthouse) */}
       <div className="relative z-20 flex flex-col items-center justify-center h-full px-4 text-center">
-        <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-          Find Your Dream Home at
-          <br />
-          <span className="text-blue-400">{siteConfig.name}</span>
-        </h1>
-        <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl">
-          {siteConfig.tagline}. Golf course living, guard-gated security, and a vibrant 55+ community—your trusted partner at Siena.
-        </p>
+        <div className="min-h-[7.5rem] md:min-h-[8rem]">
+          <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            Find Your Dream Home at
+            <br />
+            <span className="text-blue-400">{siteConfig.name}</span>
+          </h1>
+          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl">
+            {siteConfig.tagline}. Golf course living, guard-gated security, and a vibrant 55+ community—your trusted partner at Siena.
+          </p>
+        </div>
 
         {/* RealScout Search Widget */}
         <div className="realscout-wrapper mb-4">

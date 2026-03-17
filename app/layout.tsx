@@ -93,6 +93,10 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth antialiased" style={{ colorScheme: 'light' }}>
       <head>
         <meta name="color-scheme" content="light" />
+        {/* Preconnect to key third-party origins to reduce LCP (Lighthouse) */}
+        <link rel="preconnect" href="https://assets.calendly.com" />
+        <link rel="preconnect" href="https://em.realscout.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
         {/* Site-wide JSON-LD Schema: RealEstateAgent + WebSite */}
         <SchemaScript schema={siteWideSchemas} id="site-schema" />
         {/* Google Analytics - lazyOnload to reduce main-thread work during LCP */}

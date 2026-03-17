@@ -10,6 +10,8 @@ Use this when editing the app or after syncing from Vercel/GitHub. Aligns with 2
 - [ ] **Static:** Pre-render static pages; use ISR (`revalidate`) where content changes occasionally.
 - [ ] **LCP:** Largest contentful paint under 2.5s — optimize hero image and main content load. Hero uses `priority` and `sizes="100vw"` on the first image.
 - [ ] **Bundle analyzer:** Run `npm run analyze` (or `ANALYZE=true next build`) to generate client/edge/server bundle reports in `.next/` for identifying large chunks and code-splitting opportunities.
+- [ ] **Third-party images and cache:** RealScout listing images (CloudFront) and the RealScout script are served by third parties; we cannot set their cache TTL or image format/sizing. Improvements would require RealScout or a proxy. First-party assets use Vercel/Next defaults.
+- [ ] **Render-blocking CSS:** The main stylesheet is injected by Next.js and can block initial render. Geist font is loaded via `next/font`. If your Next.js version supports `experimental.optimizeCss` (e.g. with critters), consider enabling it to inline critical CSS; otherwise document and rely on preconnect + deferred scripts.
 
 ## Vercel and build
 
