@@ -1,0 +1,355 @@
+import Navbar from "@/components/layouts/Navbar";
+import Footer from "@/components/layouts/Footer";
+import RealScoutListings from "@/components/realscout/RealScoutListings";
+import Link from "next/link";
+import {
+  Phone,
+  MapPin,
+  Shield,
+  Home as HomeIcon,
+  Dumbbell,
+  Users,
+  Star,
+  Calendar,
+  Palmtree,
+  Landmark,
+} from "lucide-react";
+import type { Metadata } from "next";
+import { sienaCommunity } from "@/lib/site-config";
+
+export const metadata: Metadata = {
+  title: "Siena 55+ Community Las Vegas | Golf, Guard-Gated | Dr. Jan Duffy",
+  description:
+    "Siena — premier 55+ community in Las Vegas. Schmidt-Curley golf course, Community Center, guard-gated security, clubs & events. 10525 Siena Monte Ave. Dr. Jan Duffy, BHHS. Call (702) 500-1942.",
+  keywords: [
+    "Siena Las Vegas",
+    "Siena 55+ community",
+    "Siena golf course",
+    "Siena Monte Ave",
+    "guard-gated 55+ Las Vegas",
+    "Siena Community Association",
+    "homes for sale Siena Las Vegas",
+  ],
+  openGraph: {
+    title: "Siena — Premier 55+ Community in Las Vegas | Dr. Jan Duffy",
+    description:
+      "Championship golf, Community Center, guard-gated security. 10525 Siena Monte Ave. Active adult living with Spring Mountain views.",
+    type: "website",
+  },
+};
+
+const communitySchema = {
+  "@context": "https://schema.org",
+  "@type": "Place",
+  name: "Siena Community Association",
+  description:
+    "Premier 55+ guard-gated community in Las Vegas with championship golf, Community Center, and Spring Mountain backdrop.",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "10525 Siena Monte Ave",
+    addressLocality: "Las Vegas",
+    addressRegion: "NV",
+    postalCode: "89135",
+    addressCountry: "US",
+  },
+  telephone: "+17022582500",
+  url: "https://www.sienalv.org",
+};
+
+export default function SienaPage() {
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(communitySchema) }}
+      />
+      <Navbar />
+      <main className="pt-24 pb-16">
+        <div className="container mx-auto px-4">
+          {/* Breadcrumb */}
+          <div className="max-w-6xl mx-auto mb-6">
+            <nav className="text-sm text-slate-500">
+              <Link href="/" className="hover:text-blue-600">
+                Home
+              </Link>
+              {" / "}
+              <Link href="/55-plus-communities" className="hover:text-blue-600">
+                55+ Communities
+              </Link>
+              {" / "}
+              <span className="text-slate-900">Siena</span>
+            </nav>
+          </div>
+
+          {/* Hero */}
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <div className="inline-flex items-center bg-emerald-100 text-emerald-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+              <Palmtree className="h-4 w-4 mr-2" />
+              Premier 55+ Community — Spring Mountain Backdrop
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+              Siena
+            </h1>
+            <p className="text-xl text-slate-600">
+              {sienaCommunity.tagline}
+            </p>
+          </div>
+
+          {/* Quick Stats */}
+          <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
+            <h2 className="text-2xl font-bold mb-8 text-center">
+              Siena at a Glance
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-emerald-400 mb-1">
+                  1998
+                </div>
+                <div className="text-slate-300 text-sm">Community Founded</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-emerald-400 mb-1">
+                  18-Hole
+                </div>
+                <div className="text-slate-300 text-sm">Championship Golf</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold mb-1">Guard-Gated</div>
+                <div className="text-slate-300 text-sm">24/7 Security</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-emerald-400 mb-1">
+                  10525 Siena Monte Ave
+                </div>
+                <div className="text-slate-300 text-sm">Las Vegas, NV 89135</div>
+              </div>
+            </div>
+          </section>
+
+          {/* Explore Siena — links to subpages */}
+          <section className="mb-16 max-w-5xl mx-auto">
+            <h2 className="text-2xl font-bold text-slate-900 mb-6 text-center">
+              Explore Siena
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+              <Link
+                href="/55-plus-communities/siena/community"
+                className="flex items-center gap-3 p-4 rounded-xl border border-slate-200 bg-white hover:border-emerald-300 hover:shadow-md transition-all"
+              >
+                <MapPin className="h-8 w-8 text-emerald-600 flex-shrink-0" />
+                <span className="font-semibold text-slate-900">Community</span>
+              </Link>
+              <Link
+                href="/55-plus-communities/siena/amenities"
+                className="flex items-center gap-3 p-4 rounded-xl border border-slate-200 bg-white hover:border-emerald-300 hover:shadow-md transition-all"
+              >
+                <HomeIcon className="h-8 w-8 text-emerald-600 flex-shrink-0" />
+                <span className="font-semibold text-slate-900">Amenities</span>
+              </Link>
+              <Link
+                href="/55-plus-communities/siena/events-activities"
+                className="flex items-center gap-3 p-4 rounded-xl border border-slate-200 bg-white hover:border-emerald-300 hover:shadow-md transition-all"
+              >
+                <Calendar className="h-8 w-8 text-emerald-600 flex-shrink-0" />
+                <span className="font-semibold text-slate-900">Events & Activities</span>
+              </Link>
+              <Link
+                href="/55-plus-communities/siena/clubs-groups"
+                className="flex items-center gap-3 p-4 rounded-xl border border-slate-200 bg-white hover:border-emerald-300 hover:shadow-md transition-all"
+              >
+                <Users className="h-8 w-8 text-emerald-600 flex-shrink-0" />
+                <span className="font-semibold text-slate-900">Clubs & Groups</span>
+              </Link>
+              <Link
+                href="/55-plus-communities/siena/local-attractions"
+                className="flex items-center gap-3 p-4 rounded-xl border border-slate-200 bg-white hover:border-emerald-300 hover:shadow-md transition-all"
+              >
+                <Landmark className="h-8 w-8 text-emerald-600 flex-shrink-0" />
+                <span className="font-semibold text-slate-900">Local Attractions</span>
+              </Link>
+            </div>
+            <p className="text-center text-slate-500 text-sm mt-4">
+              Content from{" "}
+              <a href="https://www.sienalv.org/home/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                Siena Community Association (sienalv.org)
+              </a>
+            </p>
+          </section>
+
+          {/* About */}
+          <section className="mb-16 max-w-4xl mx-auto">
+            <div className="prose prose-lg max-w-none text-slate-700">
+              <h2 className="text-3xl font-bold text-slate-900 mb-6">
+                Welcome to Siena
+              </h2>
+              <p>
+                {sienaCommunity.description}
+              </p>
+              <p>
+                Surrounded by beautiful lakes, the Schmidt-Curley designed 18-hole championship Siena Golf Course features an ideal blend of doglegs and straightaway holes, a mix of slender and ample fairways, and a balance between benign and rugged green complexes. The Bistro, located in the Siena Golf Club, offers breathtaking views and a dining experience to please not only the palate, but also the heart and soul.
+              </p>
+              <p>
+                <strong>Dr. Jan Duffy</strong> with Berkshire Hathaway HomeServices Nevada Properties helps buyers and sellers in Siena. For real estate in this premier 55+ community, call (702) 500-1942 or visit sienalasvegas.com.
+              </p>
+            </div>
+          </section>
+
+          {/* Community Center & Amenities */}
+          <section className="mb-16 max-w-5xl mx-auto">
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Community Center & Amenities
+            </h2>
+            <p className="text-slate-600 text-center max-w-2xl mx-auto mb-8">
+              {sienaCommunity.amenitiesIntro}
+            </p>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <div className="bg-emerald-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                  <HomeIcon className="h-6 w-6 text-emerald-600" />
+                </div>
+                <h3 className="font-bold text-slate-900 mb-2">Community Center</h3>
+                <ul className="text-slate-600 text-sm space-y-1">
+                  {sienaCommunity.amenities.slice(0, 4).map((a, i) => (
+                    <li key={i}>• {a}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <div className="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                  <Dumbbell className="h-6 w-6 text-blue-600" />
+                </div>
+                <h3 className="font-bold text-slate-900 mb-2">More Amenities</h3>
+                <ul className="text-slate-600 text-sm space-y-1">
+                  {sienaCommunity.amenities.slice(4, 8).map((a, i) => (
+                    <li key={i}>• {a}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <div className="bg-amber-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                  <Star className="h-6 w-6 text-amber-600" />
+                </div>
+                <h3 className="font-bold text-slate-900 mb-2">Siena Golf & Bistro</h3>
+                <p className="text-slate-600 text-sm">{sienaCommunity.golf}</p>
+              </div>
+            </div>
+          </section>
+
+          {/* Security */}
+          <section className="mb-16 max-w-5xl mx-auto">
+            <div className="bg-emerald-50 border-l-4 border-emerald-600 rounded-r-xl p-8">
+              <div className="flex items-start">
+                <Shield className="h-8 w-8 text-emerald-600 mr-4 flex-shrink-0 mt-1" />
+                <div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-4">
+                    Guard-Gated Security
+                  </h3>
+                  <p className="text-slate-700">{sienaCommunity.security}</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Clubs & Events */}
+          <section className="mb-16 max-w-5xl mx-auto">
+            <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
+              Clubs, Groups & Events
+            </h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <Users className="h-8 w-8 text-emerald-600 mb-4" />
+                <h3 className="font-bold text-slate-900 mb-2">Clubs & Groups</h3>
+                <p className="text-slate-600 text-sm">{sienaCommunity.clubs}</p>
+              </div>
+              <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <Calendar className="h-8 w-8 text-emerald-600 mb-4" />
+                <h3 className="font-bold text-slate-900 mb-2">Events & Activities</h3>
+                <p className="text-slate-600 text-sm">{sienaCommunity.events}</p>
+              </div>
+            </div>
+          </section>
+
+          {/* Local Attractions */}
+          <section className="mb-16 max-w-5xl mx-auto">
+            <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
+              Local Attractions
+            </h2>
+            <p className="text-slate-600 text-center max-w-2xl mx-auto mb-6">
+              {sienaCommunity.localAttractions}
+            </p>
+            <p className="text-center">
+              <Link
+                href="/55-plus-communities/siena/local-attractions"
+                className="text-blue-600 font-semibold hover:underline"
+              >
+                Explore attractions, restaurants, shopping, shows & parks →
+              </Link>
+            </p>
+          </section>
+
+          {/* Address & Gates */}
+          <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
+            <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
+              Siena Community Association
+            </h2>
+            <div className="flex flex-col items-center text-center space-y-4">
+              <div className="flex items-center">
+                <MapPin className="h-5 w-5 text-slate-600 mr-2" />
+                <span>{sienaCommunity.streetDisplay}, {sienaCommunity.address.city}, {sienaCommunity.address.state} {sienaCommunity.address.zip}</span>
+              </div>
+              <div className="flex flex-wrap justify-center gap-x-6 gap-y-1">
+                <span className="flex items-center">
+                  <Phone className="h-5 w-5 text-slate-600 mr-2" />
+                  <a href={sienaCommunity.hoaPhoneTel} className="text-blue-600 hover:underline">
+                    {sienaCommunity.hoaPhone}
+                  </a>
+                </span>
+                <span className="text-slate-600">Fax: {sienaCommunity.fax}</span>
+              </div>
+              <p className="text-sm text-slate-600 mt-4">
+                <strong>Guest gate addresses:</strong> Main Gate — {sienaCommunity.gates.main}. Tropicana Gate — {sienaCommunity.gates.tropicana}.
+              </p>
+              <p className="text-sm text-slate-500">
+                For real estate in Siena, contact Dr. Jan Duffy: (702) 500-1942 | sienalasvegas.com
+              </p>
+            </div>
+          </section>
+
+          {/* CTA */}
+          <section className="mb-16 max-w-2xl mx-auto text-center">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">
+              Interested in Buying or Selling in Siena?
+            </h2>
+            <p className="text-slate-600 mb-6">
+              Dr. Jan Duffy specializes in Siena and Las Vegas 55+ communities. Free home valuations and expert representation.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="tel:+17025001942"
+                className="inline-flex items-center justify-center px-6 py-3 bg-emerald-600 text-white font-semibold rounded-lg hover:bg-emerald-700"
+              >
+                <Phone className="h-5 w-5 mr-2" />
+                (702) 500-1942
+              </a>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center px-6 py-3 border border-slate-300 text-slate-700 font-semibold rounded-lg hover:bg-slate-50"
+              >
+                Contact Dr. Jan
+              </Link>
+            </div>
+          </section>
+
+          {/* Listings */}
+          <section className="mb-16 max-w-6xl mx-auto">
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Homes for Sale in Siena
+            </h2>
+            <RealScoutListings />
+          </section>
+        </div>
+      </main>
+      <Footer />
+    </>
+  );
+}

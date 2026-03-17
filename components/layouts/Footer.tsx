@@ -12,8 +12,7 @@ export default function Footer() {
           <div>
             <h3 className="font-bold text-xl mb-4">Berkshire Hathaway HomeServices</h3>
             <p className="text-slate-300 mb-4 text-sm">
-              Nevada Properties - Your trusted real estate partner in Las Vegas, Henderson, and
-              Summerlin. Backed by Warren Buffett's legacy of trust.
+              Nevada Properties — Your trusted real estate partner at Siena and Las Vegas 55+ communities. Backed by Warren Buffett's legacy of trust.
             </p>
             <div className="flex space-x-4">
               <a
@@ -190,10 +189,10 @@ export default function Footer() {
               <li className="flex items-center">
                 <Mail className="h-5 w-5 mr-3 text-blue-400 flex-shrink-0" />
                 <Link
-                  href="mailto:homes@heyberkshire.com"
+                  href="mailto:homes@sienalasvegas.com"
                   className="text-slate-300 hover:text-white transition-colors text-sm"
                 >
-                  Homes@HeyBerkshire.com
+                  homes@sienalasvegas.com
                 </Link>
               </li>
             </ul>

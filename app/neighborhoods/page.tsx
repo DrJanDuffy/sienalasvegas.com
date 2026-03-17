@@ -6,19 +6,29 @@ import { MapPin, Phone, Home, Users, GraduationCap } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Las Vegas Neighborhoods | Berkshire Hathaway HomeServices",
+  title: "Siena & Las Vegas 55+ Communities | Dr. Jan Duffy",
   description:
-    "Explore Las Vegas and Henderson neighborhoods with Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties. Summerlin, Henderson, The Ridges, Southern Highlands & more.",
+    "Explore Siena and Las Vegas 55+ communities with Dr. Jan Duffy. Siena, Sun City Summerlin, Del Webb, Heritage at Stonebridge, Henderson & area neighborhoods.",
   keywords: [
-    "Las Vegas neighborhoods",
-    "Henderson communities",
-    "Summerlin real estate",
-    "best neighborhoods Las Vegas",
-    "where to live Las Vegas",
+    "Siena Las Vegas",
+    "55+ communities Las Vegas",
+    "Siena real estate",
+    "Sun City Summerlin",
+    "active adult communities",
   ],
 };
 
 const neighborhoods = [
+  {
+    name: "Siena",
+    slug: "siena",
+    medianPrice: "—",
+    priceChange: "—",
+    description: "Premier 55+ guard-gated community with championship golf, Community Center, and clubs",
+    highlights: ["Siena Golf Course", "Guard-Gated", "Community Center", "10525 Siena Monte Ave"],
+    bestFor: "Active adults 55+, golfers, community-focused living",
+    href: "/55-plus-communities/siena",
+  },
   {
     name: "Summerlin",
     slug: "summerlin",
@@ -123,11 +133,10 @@ export default function NeighborhoodsPage() {
               Berkshire Hathaway HomeServices Nevada Properties
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-              Las Vegas & Henderson Neighborhoods
+              Siena & Las Vegas 55+ Communities
             </h1>
             <p className="text-xl text-slate-600">
-              Explore the best communities in Southern Nevada with Dr. Jan Duffy, your{" "}
-              <strong>Berkshire Hathaway HomeServices</strong> neighborhood expert
+              Your hyper-local expert for <strong>Siena</strong> and Las Vegas active-adult communities. Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties
             </p>
           </div>
 
@@ -137,7 +146,7 @@ export default function NeighborhoodsPage() {
               {neighborhoods.map((neighborhood) => (
                 <Link
                   key={neighborhood.slug}
-                  href={`/neighborhoods/${neighborhood.slug}`}
+                  href={("href" in neighborhood && neighborhood.href) || `/neighborhoods/${neighborhood.slug}`}
                   className="bg-white border border-slate-200 rounded-lg p-6 hover:shadow-lg transition-all hover:border-blue-300 group"
                 >
                   <div className="flex justify-between items-start mb-3">

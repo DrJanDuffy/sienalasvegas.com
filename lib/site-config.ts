@@ -1,18 +1,17 @@
-// Site Configuration - HeyBerkshire.com
-// Berkshire Hathaway HomeServices Nevada Properties
+// Site Configuration - sienalasvegas.com
+// Siena Las Vegas real estate — Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties
 
 export const siteConfig = {
-  name: "HeyBerkshire",
+  name: "Siena Las Vegas",
   fullName: "Berkshire Hathaway HomeServices Nevada Properties",
-  tagline: "Private Client Real Estate Advisory",
-  /** Full brand line for titles and OG: Berkshire Hathaway HomeServices Nevada Properties | Private Client Real Estate Advisory */
+  tagline: "Real Estate at Siena — Premier 55+ Community",
   brandLine:
-    "Berkshire Hathaway HomeServices Nevada Properties | Private Client Real Estate Advisory",
+    "Siena Las Vegas Real Estate | Dr. Jan Duffy | Berkshire Hathaway HomeServices Nevada Properties",
   brandName: "Berkshire Hathaway HomeServices",
   shortName: "BHHS",
-  url: "https://heyberkshire.com",
+  url: "https://www.sienalasvegas.com",
   description:
-    "Expert real estate services in Las Vegas and Henderson, NV. Buy, sell, or invest with Dr. Jan Duffy, your trusted Berkshire Hathaway HomeServices Nevada Properties agent.",
+    "Homes for sale in Siena, Las Vegas's premier 55+ community. Golf course living, guard-gated security, Community Center & clubs. Dr. Jan Duffy, BHHS Nevada Properties. 10525 Siena Monte Ave. Call (702) 500-1942.",
 };
 
 export const agentInfo = {
@@ -22,18 +21,18 @@ export const agentInfo = {
   phone: "(702) 500-1942",
   phoneFormatted: "(702) 500-1942",
   phoneTel: "tel:+17025001942",
-  email: "homes@heyberkshire.com",
+  email: "homes@sienalasvegas.com",
   brokerage: "Berkshire Hathaway HomeServices Nevada Properties",
 };
 
 export const officeInfo = {
   name: "Berkshire Hathaway HomeServices Nevada Properties",
   address: {
-    street: "9406 W Lake Mead Blvd, Suite 100",
+    street: "10525 Siena Monte Ave",
     city: "Las Vegas",
     state: "NV",
-    zip: "89134",
-    full: "9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134",
+    zip: "89135",
+    full: "10525 Siena Monte Ave, Las Vegas, NV 89135",
   },
   coordinates: {
     lat: 36.1893,
@@ -97,8 +96,62 @@ export const valuePropositions = {
     "Serving Las Vegas since 2008 with $127M+ in closed transactions, Dr. Jan Duffy combines deep local market knowledge with the resources of a global brand.",
 };
 
+// Siena Community (from sienalv.org) — premier 55+ community
+export const sienaCommunity = {
+  name: "Siena",
+  tagline:
+    "A premier 55+ community where the Spring Mountain range provides the backdrop and stately palms line a pathway to our door. As a desert oasis offering a lifestyle for active adults in Las Vegas, Siena is a place to proudly call home.",
+  description:
+    "In 1998, the vision for Siena was born. Siena surrounds a public, 18-hole championship golf course and is one of the most beautiful, active, and friendly age-privileged communities in the country. Residents enjoy an abundance of amenities and activities. Our residents consider Siena a paradise.",
+  address: {
+    street: "10525 Siena Monte Ave",
+    city: "Las Vegas",
+    state: "NV",
+    zip: "89135",
+    full: "10525 Siena Monte Ave, Las Vegas, NV 89135",
+  },
+  streetDisplay: "10525 Siena Monte Avenue",
+  hoaPhone: "(702) 258-2500",
+  hoaPhoneTel: "tel:+17022582500",
+  fax: "(702) 258-2505",
+  gates: {
+    main: "10539 Siena Monte Ave (homes north of Tropicana)",
+    tropicana: "4925 Fiore Bella Blvd (homes south of Tropicana)",
+  },
+  golf:
+    "Schmidt-Curley designed 18-hole championship Siena Golf Course; lakes; doglegs and straightaway holes; Bistro at Siena Golf Club with views and dining.",
+  amenities: [
+    "Community Center (heart of Siena, spectacular view)",
+    "Rotunda (coffee and conversation)",
+    "Library",
+    "Art, Ceramics, Sewing, Music rooms",
+    "Billiards, Card & Games",
+    "Computer Classroom",
+    "Fitness Center",
+    "Salon & Spa",
+    "Siena Golf & Bistro",
+  ],
+  amenitiesIntro:
+    "The Community Center, with a spectacular view, is the heart of Siena. Residents gather for coffee and conversation in the Rotunda or read a book in the lovely Library. The Community Center has rooms dedicated to Art, Ceramics, Sewing, Music, Billiards, Card & Games, in addition to a Computer Classroom.",
+  security:
+    "Siena is a guard-gated community. Armed security personnel are onsite 24 hours a day, 365 days a year. The security team is CPR/AED/First Aid certified and can provide basic assistance while emergency responders are on their way. In the event of a medical, fire, or safety emergency, always call 911 first. Mobile Patrol Officers conduct routine patrols throughout the community, monitor access points, and document or report incidents of concern to management or law enforcement when appropriate. Their primary role is to promote a safe and secure environment for all Siena residents and guests.",
+  clubs:
+    "A significant part of the active Siena lifestyle includes many clubs and groups. Siena's clubs and groups are resident-run, and provide a wide range of group and individual activities, catering to various interests, in categories such as active, card & game, creative, discussion, informative, and social.",
+  events:
+    "Siena's Lifestyle Department strives to provide the very best activities and events for residents. Monthly happy hours, trips to the Smith Center, BBQs and trivia nights are all coordinated by Lifestyle. The Social Committee holds Signature Events, including Sienafest and the annual New Year's Eve Gala. The wide variety offers something for everyone.",
+  localAttractions:
+    "Those new to Las Vegas may not realize how much our exciting city has to offer. Famous for glitz and glamour, Las Vegas and surrounding areas are also home to professional sports teams, parks, restaurants, shopping, cultural events, museums and other attractions. You will never be bored in Vegas!",
+};
+
 // Neighborhoods served
 export const neighborhoods = [
+  {
+    name: "Siena",
+    slug: "siena",
+    description: "Premier 55+ guard-gated community with championship golf, Community Center, and Spring Mountain views",
+    medianPrice: "Varies",
+    highlights: ["Siena Golf Course", "Guard-gated", "Community Center", "Clubs & events", "10525 Siena Monte Ave"],
+  },
   {
     name: "Summerlin",
     slug: "summerlin",

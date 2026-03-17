@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { siteConfig } from "@/lib/site-config";
 
 export default function HeroSection() {
   const [currentImage, setCurrentImage] = useState(0);
@@ -54,13 +55,12 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-20 flex flex-col items-center justify-center h-full px-4 text-center">
         <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-          Find Your Dream Home in
+          Find Your Dream Home at
           <br />
-          <span className="text-blue-400">Las Vegas & Henderson</span>
+          <span className="text-blue-400">{siteConfig.name}</span>
         </h1>
         <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl">
-          Expert real estate services with personalized attention. Your trusted partner for buying,
-          selling, and investing in Southern Nevada.
+          {siteConfig.tagline}. Golf course living, guard-gated security, and a vibrant 55+ community—your trusted partner at Siena.
         </p>
 
         {/* RealScout Search Widget */}
@@ -80,7 +80,7 @@ export default function HeroSection() {
           </div>
           <div className="flex items-center gap-2">
             <span className="font-semibold">Since 2008</span>
-            <span>Serving Las Vegas</span>
+            <span>Serving Siena & Las Vegas</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="font-semibold">4.9★</span>

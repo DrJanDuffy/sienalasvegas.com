@@ -16,9 +16,9 @@ import {
 } from "@/lib/schema";
 import { siteConfig } from "@/lib/site-config";
 
-const title = "Berkshire Hathaway HomeServices Las Vegas | Dr. Jan Duffy, REALTOR®";
+const title = "Siena Las Vegas Real Estate | 55+ Communities | Dr. Jan Duffy, REALTOR®";
 const description =
-  "Looking for a Berkshire Hathaway HomeServices agent in Las Vegas? Dr. Jan Duffy with BHHS Nevada Properties offers expert real estate services—backed by Warren Buffett's legacy of trust.";
+  "Siena and Las Vegas 55+ communities. Dr. Jan Duffy with Berkshire Hathaway HomeServices Nevada Properties—Siena golf, guard-gated living, Community Center. Call (702) 500-1942.";
 const url = siteConfig.url;
 
 export const metadata: Metadata = {
@@ -29,24 +29,22 @@ export const metadata: Metadata = {
   description,
   metadataBase: new URL(url),
   keywords: [
-    "Berkshire Hathaway HomeServices",
+    "Siena Las Vegas",
+    "Siena real estate",
+    "55+ communities Las Vegas",
     "Berkshire Hathaway HomeServices Nevada Properties",
-    "Berkshire Hathaway HomeServices Las Vegas",
-    "BHHS real estate agent",
-    "Berkshire Hathaway realtor Las Vegas",
     "Dr. Jan Duffy",
     "Las Vegas real estate",
-    "Henderson real estate",
-    "Las Vegas homes for sale",
-    "Henderson homes for sale",
-    "Summerlin real estate",
-    "luxury homes Las Vegas",
+    "Siena golf",
+    "guard-gated 55+",
+    "Siena Monte Ave",
+    "sienalasvegas.com",
   ],
   openGraph: {
     title,
     description,
     url,
-    siteName: `HeyBerkshire - ${siteConfig.brandLine}`,
+    siteName: siteConfig.name,
     type: "website",
     locale: "en_US",
   },
@@ -65,6 +63,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: url,
   },
+  // Google Search Console: set GOOGLE_SITE_VERIFICATION in env to your meta tag content value
+  ...(process.env.GOOGLE_SITE_VERIFICATION
+    ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } }
+    : {}),
 };
 
 // Combined site-wide schemas using the schema utility

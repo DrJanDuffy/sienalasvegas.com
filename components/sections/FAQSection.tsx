@@ -13,7 +13,7 @@ export const defaultFaqs: FAQ[] = [
   {
     question: "What areas do you serve?",
     answer:
-      "We specialize in Las Vegas and Henderson, Nevada, including Summerlin, Green Valley, and surrounding communities. Our expertise covers residential, luxury, and investment properties throughout Southern Nevada.",
+      "We specialize in Siena and Las Vegas 55+ communities—including Siena (10525 Siena Monte Ave), Sun City Summerlin, Del Webb Lake Las Vegas, Heritage at Stonebridge, and other active-adult neighborhoods. Dr. Jan also serves Summerlin, Henderson, and the greater Las Vegas area.",
   },
   {
     question: "How long does the home buying process take?",
@@ -28,7 +28,7 @@ export const defaultFaqs: FAQ[] = [
   {
     question: "What makes you different from other real estate agents?",
     answer:
-      "Serving Las Vegas since 2008 with 500+ successful transactions, we combine deep local market knowledge with personalized service. As part of Berkshire Hathaway HomeServices, we have access to extensive resources and technology to serve you better.",
+      "Serving Siena and Las Vegas since 2008 with 500+ successful transactions, we combine hyper-local Siena and 55+ community expertise with personalized service. As part of Berkshire Hathaway HomeServices, we have the resources to serve you better.",
   },
   {
     question: "Can you help with investment properties?",

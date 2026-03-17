@@ -13,7 +13,7 @@ export default function RealScoutListings() {
               Featured Properties
             </h2>
             <p className="text-slate-600 text-lg">
-              Discover exceptional homes in Las Vegas and Henderson
+              Discover homes at Siena and Las Vegas 55+ communities
             </p>
           </div>
           <Button asChild variant="outline" className="mt-4 md:mt-0">

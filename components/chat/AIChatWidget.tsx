@@ -16,7 +16,7 @@ export default function AIChatWidget() {
     {
       role: "assistant",
       content:
-        "Hello! I'm your real estate assistant. How can I help you find your dream home in Las Vegas or Henderson today?",
+        "Hello! I'm your Siena real estate assistant. How can I help you find your dream home at Siena or in Las Vegas 55+ communities today?",
     },
   ]);
   const [input, setInput] = useState("");

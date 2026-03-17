@@ -23,15 +23,17 @@ import {
   ArrowRight,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { sienaCommunity } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title:
-    "55+ Active Adult Communities Las Vegas | Sun City, Del Webb, Heritage | Dr. Jan Duffy",
+    "55+ Active Adult Communities Las Vegas | Siena, Sun City, Del Webb, Heritage | Dr. Jan Duffy",
   description:
-    "Find your perfect 55+ community in Las Vegas. Sun City Summerlin, Sun City Aliante, Del Webb Lake Las Vegas, Heritage at Stonebridge, Solera, Trilogy. Dr. Jan Duffy specializes in active adult living. Call (702) 500-1942.",
+    "Find your perfect 55+ community in Las Vegas. Siena, Sun City Summerlin, Del Webb Lake Las Vegas, Heritage at Stonebridge, Solera, Trilogy. Dr. Jan Duffy specializes in active adult living. Call (702) 500-1942.",
   keywords: [
     "55+ communities Las Vegas",
     "active adult communities Las Vegas",
+    "Siena Las Vegas",
     "Sun City Summerlin",
     "Sun City Aliante",
     "Del Webb Lake Las Vegas",
@@ -44,7 +46,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Find Your Perfect 55+ Community in Las Vegas | Dr. Jan Duffy",
     description:
-      "Sun City, Del Webb, Heritage at Stonebridge & more—Dr. Duffy specializes in active adult living. Berkshire Hathaway HomeServices Nevada Properties.",
+      "Siena, Sun City, Del Webb, Heritage at Stonebridge & more—Dr. Duffy specializes in active adult living. sienalasvegas.com | Berkshire Hathaway HomeServices Nevada Properties.",
     type: "website",
   },
 };
@@ -111,7 +113,7 @@ const localBusinessSchema = {
   description:
     "55+ community specialist helping active adults find their perfect Las Vegas retirement home",
   telephone: "(702) 500-1942",
-  url: "https://heyberkshire.com/55-plus-communities",
+  url: "https://sienalasvegas.com/55-plus-communities",
   areaServed: {
     "@type": "City",
     name: "Las Vegas",
@@ -120,6 +122,7 @@ const localBusinessSchema = {
   knowsAbout: [
     "55+ Communities",
     "Active Adult Living",
+    "Siena",
     "Sun City Summerlin",
     "Sun City Aliante",
     "Del Webb",
@@ -264,22 +267,22 @@ const communities = [
   },
   {
     name: "Siena",
-    slug: null, // No dedicated page yet
-    location: "Summerlin",
+    slug: "siena",
+    location: "Las Vegas (Spring Mountain)",
     ageRequirement: "55+ (at least one resident)",
-    hoaFees: "$140-$180/month",
-    priceRange: "$280,000 - $550,000",
-    homes: "2,300+ homes",
-    amenities: ["Golf course", "Pools", "Fitness", "Social clubs"],
+    hoaFees: "Varies",
+    priceRange: "Varies",
+    homes: "Age-privileged community",
+    amenities: ["Siena Golf Course", "Community Center", "Fitness", "Salon & Spa", "Clubs & events"],
     highlights: [
-      "Most affordable Summerlin 55+ option",
-      "18-hole golf course",
-      "Established community (1990s)",
-      "Strong sense of community",
+      "Premier 55+ guard-gated community",
+      "Schmidt-Curley 18-hole championship golf",
+      sienaCommunity.streetDisplay,
+      "Spring Mountain backdrop",
     ],
     description:
-      "Siena offers the Summerlin lifestyle at more accessible price points.",
-    color: "slate",
+      sienaCommunity.tagline.split(". ")[0] + ". Championship golf, Community Center, guard-gated security.",
+    color: "emerald",
   },
 ];
 

@@ -9,33 +9,34 @@ import Footer from "@/components/layouts/Footer";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { Home as HomeIcon, TrendingUp, Shield, Users, Phone } from "lucide-react";
+import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "Berkshire Hathaway HomeServices Las Vegas | Dr. Jan Duffy, REALTOR®",
-  description:
-    "Looking for a Berkshire Hathaway HomeServices agent in Las Vegas? Dr. Jan Duffy with BHHS Nevada Properties offers expert real estate services—backed by Warren Buffett's legacy of trust. Call (702) 500-1942.",
+  title: `${siteConfig.name} Real Estate | 55+ Community | Dr. Jan Duffy, REALTOR®`,
+  description: siteConfig.description,
   keywords: [
-    "Berkshire Hathaway HomeServices",
-    "Berkshire Hathaway HomeServices Nevada Properties",
-    "BHHS Las Vegas",
-    "Dr. Jan Duffy realtor",
-    "Las Vegas real estate agent",
+    "Siena Las Vegas",
+    "Siena real estate",
+    "55+ community Las Vegas",
+    "Siena golf course",
+    "Dr. Jan Duffy Siena",
+    "homes for sale Siena",
   ],
 };
 
-// Organization Schema
+// Organization Schema (Siena NAP per GBP)
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "RealEstateAgent",
   name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
-  url: "https://heyberkshire.com",
+  url: siteConfig.url,
   telephone: "+17025001942",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "9406 W Lake Mead Blvd, Suite 100",
+    streetAddress: "10525 Siena Monte Ave",
     addressLocality: "Las Vegas",
     addressRegion: "NV",
-    postalCode: "89134",
+    postalCode: "89135",
   },
   aggregateRating: {
     "@type": "AggregateRating",
@@ -51,26 +52,26 @@ const faqSchema = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "Why should I choose a Berkshire Hathaway HomeServices agent in Las Vegas?",
+      name: "Why choose a Berkshire Hathaway HomeServices agent for Siena real estate?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Berkshire Hathaway HomeServices is the only real estate brand backed by Warren Buffett's Berkshire Hathaway Inc. This means unmatched financial stability, ethical standards, and a global referral network of 50,000+ agents. When you're making the biggest purchase of your life, that trust matters.",
+        text: "Berkshire Hathaway HomeServices is the only real estate brand backed by Warren Buffett's Berkshire Hathaway Inc.—unmatched financial stability, ethical standards, and a global referral network. When you're buying or selling at Siena, that trust matters.",
       },
     },
     {
       "@type": "Question",
-      name: "What areas does Berkshire Hathaway HomeServices Nevada Properties serve?",
+      name: "What areas does Dr. Jan Duffy serve?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "BHHS Nevada Properties serves all of Las Vegas, Henderson, North Las Vegas, and surrounding areas, with specialized expertise in Summerlin, The Ridges, Skye Canyon, Southern Highlands, Green Valley, and all Henderson communities.",
+        text: "Dr. Jan specializes in Siena and Las Vegas 55+ communities, with deep expertise at Siena (10525 Siena Monte Ave), Sun City Summerlin, Del Webb Lake Las Vegas, Heritage at Stonebridge, and other active-adult communities in the Las Vegas area.",
       },
     },
     {
       "@type": "Question",
-      name: "How do I contact Dr. Jan Duffy at Berkshire Hathaway HomeServices?",
+      name: "How do I contact Dr. Jan Duffy for Siena real estate?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "You can reach Dr. Jan Duffy at (702) 500-1942 or email homes@heyberkshire.com. Office located at 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134.",
+        text: "Call (702) 500-1942 or email homes@sienalasvegas.com. Office at 10525 Siena Monte Ave, Las Vegas, NV 89135.",
       },
     },
     {
@@ -83,10 +84,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "What is the current Las Vegas real estate market like in 2026?",
+      name: "What is the Siena and Las Vegas 55+ market like in 2026?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "As of January 2026, the Las Vegas median home price is $450,000 (+4.2% YoY), with homes selling in an average of 28 days. Henderson's median is slightly higher at $485,000. The market remains competitive but balanced.",
+        text: "As of January 2026, the Las Vegas median home price is $450,000 (+4.2% YoY). Siena and other 55+ communities remain in strong demand. Contact Dr. Jan for current Siena listings and market insight.",
       },
     },
   ],

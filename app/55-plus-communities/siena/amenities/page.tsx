@@ -1,0 +1,156 @@
+import Navbar from "@/components/layouts/Navbar";
+import Footer from "@/components/layouts/Footer";
+import Link from "next/link";
+import { Home as HomeIcon, Clock, Building2, Dumbbell, Sparkles } from "lucide-react";
+import type { Metadata } from "next";
+import { sienaAmenitiesPage } from "@/lib/siena-pages";
+
+export const metadata: Metadata = {
+  title: "Siena Amenities | Community Center, Fitness, Salon & Spa | Dr. Jan Duffy",
+  description:
+    "Siena Community Center with Library, Rotunda, game rooms & events. 16,000 sq ft Fitness Center, Salon & Spa, room rentals. Hours and details. Dr. Jan Duffy, Siena real estate.",
+  openGraph: {
+    title: "Siena Amenities | Community Center, Fitness, Salon & Spa",
+    description:
+      "Community Center (Mon–Sun hours), Room Rentals, 16,000 sq ft Fitness Center, Siena Salon & Spa.",
+  },
+};
+
+export default function SienaAmenitiesPage() {
+  const hours = sienaAmenitiesPage.communityCenter.hours;
+  return (
+    <>
+      <Navbar />
+      <main className="pt-24 pb-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            {/* Breadcrumb */}
+            <nav className="text-sm text-slate-500 mb-8">
+              <Link href="/" className="hover:text-blue-600">
+                Home
+              </Link>
+              {" / "}
+              <Link href="/55-plus-communities" className="hover:text-blue-600">
+                55+ Communities
+              </Link>
+              {" / "}
+              <Link href="/55-plus-communities/siena" className="hover:text-blue-600">
+                Siena
+              </Link>
+              {" / "}
+              <span className="text-slate-900">Amenities</span>
+            </nav>
+
+            <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8">
+              {sienaAmenitiesPage.title}
+            </h1>
+
+            {/* Community Center */}
+            <section className="mb-12">
+              <div className="flex items-center gap-3 mb-4">
+                <HomeIcon className="h-8 w-8 text-emerald-600" />
+                <h2 className="text-2xl font-bold text-slate-900">
+                  {sienaAmenitiesPage.communityCenter.heading}
+                </h2>
+              </div>
+              <p className="text-slate-700 mb-4">
+                {sienaAmenitiesPage.communityCenter.intro}
+              </p>
+              <p className="text-slate-700 mb-4">
+                {sienaAmenitiesPage.communityCenter.heartOfSiena}
+              </p>
+              <div className="bg-slate-50 rounded-lg p-4 flex items-start gap-3">
+                <Clock className="h-5 w-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-semibold text-slate-900 mb-2">
+                    Community Center Hours
+                  </h3>
+                  <ul className="text-slate-700 text-sm space-y-1">
+                    {Object.entries(hours).map(([day, time]) => (
+                      <li key={day}>
+                        <strong>{day}:</strong> {time}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            {/* Room Rentals */}
+            <section className="mb-12">
+              <div className="flex items-center gap-3 mb-4">
+                <Building2 className="h-8 w-8 text-emerald-600" />
+                <h2 className="text-2xl font-bold text-slate-900">
+                  {sienaAmenitiesPage.roomRentals.heading}
+                </h2>
+              </div>
+              <p className="text-slate-700">{sienaAmenitiesPage.roomRentals.text}</p>
+              <p className="mt-2 text-sm">
+                <a
+                  href={sienaAmenitiesPage.sienalvRoomRental}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline"
+                >
+                  Learn more at sienalv.org →
+                </a>
+              </p>
+            </section>
+
+            {/* Fitness Center */}
+            <section className="mb-12">
+              <div className="flex items-center gap-3 mb-4">
+                <Dumbbell className="h-8 w-8 text-emerald-600" />
+                <h2 className="text-2xl font-bold text-slate-900">
+                  {sienaAmenitiesPage.fitnessCenter.heading}
+                </h2>
+              </div>
+              <p className="text-slate-700">{sienaAmenitiesPage.fitnessCenter.text}</p>
+              <p className="mt-2 text-sm">
+                <a
+                  href={sienaAmenitiesPage.sienalvFitness}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline"
+                >
+                  Learn more at sienalv.org →
+                </a>
+              </p>
+            </section>
+
+            {/* Salon & Spa */}
+            <section className="mb-12">
+              <div className="flex items-center gap-3 mb-4">
+                <Sparkles className="h-8 w-8 text-emerald-600" />
+                <h2 className="text-2xl font-bold text-slate-900">
+                  {sienaAmenitiesPage.salonSpa.heading}
+                </h2>
+              </div>
+              <p className="text-slate-700">{sienaAmenitiesPage.salonSpa.text}</p>
+              <p className="mt-2 text-sm">
+                <a
+                  href={sienaAmenitiesPage.sienalvSalon}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline"
+                >
+                  Learn more at sienalv.org →
+                </a>
+              </p>
+            </section>
+
+            <p className="text-slate-600">
+              For real estate in Siena, contact{" "}
+              <strong>Dr. Jan Duffy</strong>:{" "}
+              <a href="tel:+17025001942" className="text-blue-600 hover:underline">
+                (702) 500-1942
+              </a>{" "}
+              | sienalasvegas.com
+            </p>
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </>
+  );
+}
