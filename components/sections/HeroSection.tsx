@@ -23,7 +23,7 @@ export default function HeroSection() {
       setCurrentImage((prev) => (prev + 1) % images.length);
     }, 5000);
     return () => clearInterval(intervalId);
-  }, [prefersReducedMotion]);
+  }, [prefersReducedMotion, images.length]);
 
   return (
     <div className="relative w-full h-screen overflow-hidden">
@@ -40,6 +40,7 @@ export default function HeroSection() {
               index === currentImage ? "opacity-100" : "opacity-0"
             }`}
           >
+            {/* quality=60 tuned for LCP (hero is the LCP element) */}
             <Image
               src={src}
               alt={`Hero image ${index + 1}`}
@@ -47,7 +48,7 @@ export default function HeroSection() {
               className="object-cover"
               priority={index === 0}
               sizes={index === 0 ? "100vw" : undefined}
-              quality={70}
+              quality={60}
             />
             <div className="absolute inset-0 bg-black/40" />
           </div>
